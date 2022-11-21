@@ -1,5 +1,5 @@
 # Project Plan
-## 1. Introduzione @camillamazzoleni @mattcolo01 @pierGit7 @andrearoota
+## 1. Introduzione @camillamazzoleni
 
 ## 2. Modello di processo @andrearoota
 Il modello di processo scelto è agile, in particolare la tecnica SCRUM.
