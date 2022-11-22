@@ -45,6 +45,7 @@ definiremo le varie tabelle da memorizzare e le varie relazioni (con le diverse 
 
 ## 9. Garanzia di qualità @mattcolo01
 iso 9001
+//aiuto cosa devo dire sulla iso 9001
 
 ## 10. Pacchetti di lavoro @andrearoota
 Il progetto si divide in più componenti:
@@ -61,7 +62,10 @@ Le risorse utilizzate sono:
 -connessione e illuminazione offerti dall'università
 
 ## 12. Budget @mattcolo01
-ogni membro lavorerà 50h per un totale di 200h.
+Essendo un progetto universitario la risorsa più importante è il tempo: stimiamo che ogni membro lavorerà 50h, per un totale di 200h. Queste verranno impiegate a grandi linee nel seguente modo:
+- 150 ore di progettazione
+- 50 ore di sviluppo
+Il compenso non sarà monetario bensì un bel voto, per cui il team mette a disposizione un budget di 100€ che sarà impiegato per benzina e caffè.
 
 ## 13. Cambiamenti @pierGit7
 Per la gestione dei cambiamenti verrà sollevata una issue su github che verrà 
