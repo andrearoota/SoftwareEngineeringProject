@@ -11,8 +11,9 @@ Il team è composto da quattro persone:
 2. Mazzoleni Camilla
 3. Rota Andrea
 4. Sorgiovanni Pier Francesco
-Il team viene suddiviso tra frontend e backend, c'è un reviewer per sotto team che revisiona il codice della sua area di progetto.
-Il gruppo si incontra ogni sabato mattina, ogni sotto team si aggiorna quotidinamente.
+Il team è suddiviso tra chi si occupa di frontend (Colombo, Mazzoleni) e chi di backend (Rota, Sorgiovanni). Per ogni sotto-team è presente un reviewer (Colombo, Rota) che revisiona il codice della sua area di progetto.
+Il gruppo si incontra ogni sabato mattina in aula B-103 dell'Università degli Studi di Bergamo, mentre ogni sotto team si aggiorna quotidinamente attraverso video-call.
+GitHub è lo strumento prescelto sia per la condivisione del codice, la gestione delle versioni e le richieste di modifica, sia per la gestione della documentazione.
 
 ## 4. Standard, linee guida, procedure @andrearoota
 Il progetto verrà implementato in un'architettura client-server.
