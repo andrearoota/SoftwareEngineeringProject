@@ -1,12 +1,12 @@
 # Project Plan
 ## 1. Introduzione @camillamazzoleni
-Lo scopo del progetto è creare una piattaforma di trading algoritmico, per la gestione automatizzata di portafogli di investimento di privati.
+Lo scopo del progetto è creare una piattaforma di trading algoritmico per la gestione automatizzata di portafogli di investimento di privati.
 
-L’ utente, nella fase di registrazione crea un profilo, in cui specifica in che fascia di rischio vuole investire (basso, medio o alto). Quando l’ utente carica dei soldi, il software di trading entra in gioco: l’ algoritmo monitora costantemente il mercato e invia una notifica all’ utente ogni volta che trova un investimento o una vendita vantaggiosa: l’ utente con un semplice click può autorizzare o negare la transazione.
+L'utente, nella fase di registrazione crea un profilo, in cui specifica la fascia di rischio di investimento (basso, medio o alto). Quando l'utente carica dei soldi, il software di trading entra in gioco: l'algoritmo monitora costantemente il mercato e invia una notifica all'utente ogni volta che trova un investimento o una vendita vantaggiosa: l'utente con un semplice click può autorizzare o negare la transazione.
 
-L’ utente può monitorare l’ andamento del suo portafoglio grazie ad un’ interfaccia grafica semplice e intuitiva; può anche decidere di cambiare profilo di rischio, fare l’ upgrade a una versione premium che da accesso a maggiori garanzie, oppure vendere tutto e prelevare i fondi.
+L'utente può monitorare l'andamento del suo portafoglio grazie ad un'interfaccia grafica semplice e intuitiva; può anche decidere di cambiare profilo di rischio, fare l'upgrade a una versione premium che da accesso a maggiori garanzie, oppure vendere tutto e prelevare i fondi.
 
-Il software di trading ha quindi due funzionalità principali: una di previsione e una di analisi del rischio. Per la previsione implementeremo un analisi di serie storiche. Utilizzando modelli regressivi, mobile average (MA) ed ARMA sarà possibile determinare il trend, e quindi determinare quando conviene comprare e quando vendere. L’ analisi di rischio è necessaria per determinare in quale fascia di rischio rientrerebbe l’ investimento. In questo modo, per semplicità, il software categorizza gli investimenti in 3 categorie (basso rischio, medio rischio, alto rischio) in modo da scegliere l’ investimento più adatto all’ utente, in base al suo profilo.
+Il software di trading ha quindi due funzionalità principali: una di previsione e una di analisi del rischio. Per la previsione implementeremo un'analisi di serie storiche. Utilizzando modelli regressivi, mobile average (MA) ed ARMA sarà possibile determinare il trend, e quindi determinare quando conviene comprare e quando vendere. L'analisi di rischio è necessaria per determinare in quale fascia di rischio rientrerebbe l'investimento. In questo modo, per semplicità, il software categorizza gli investimenti in 3 categorie (basso rischio, medio rischio, alto rischio) in modo da scegliere l'investimento più adatto all'utente, in base al suo profilo.
 
 ## 2. Modello di processo @andrearoota
 Il modello di processo agile selezionato per sviluppare il progetto è il framework SCRUM.
@@ -34,7 +34,7 @@ Il software verrà implementato con un'architettura client-server:
 ## 6. Rischi @camillamazzoleni
 Il rischio maggiore è mancare la consegna finale del progetto causa impegni universitari e lavorativi di ciascun membro del team.
 -non riuscire a sviluppare un algoritmo abbastanza sofisticato che quindi non può essere utilizzato
--possibili problemi per ottenere datasets sull’ andamento dello stock exchange
+-possibili problemi per ottenere datasets sull'andamento dello stock exchange
 -possibili problemi per ottenere autorizzazione dalle banche per le transazioni
 
 ## 7. Personale @camillamazzoleni
@@ -43,7 +43,7 @@ Il team è composto da quattro persone:
 2. Mazzoleni Camilla (frontend e reviewer)
 3. Rota Andrea (backend, reviewer, progettista database)
 4. Sorgiovanni Pier Francesco (backend, project manager, tester)
-lo Scrum Master verrà fatto a rotazione per coinvolgere e far apprendere il ruolo a tutti i membri del team.
+Lo Scrum Master verrà fatto a rotazione per coinvolgere e far apprendere il ruolo a tutti i membri del team.
 
 ## 8. Metodi e tecniche @pierGit7
 I due team si incontreranno per discutere i diagrammi da utilizzare per modellare il programma.
