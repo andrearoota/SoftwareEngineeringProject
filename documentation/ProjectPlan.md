@@ -72,7 +72,7 @@ Ogni membro del team partecipa attivamente allo sviluppo dei vari componenti.
 Per la realizzazione di questo progetto abbiamo usufruito di diverse risorse:
 -Il team , formato da 4 sviluppatori, nei quali è compreso un projetct-manager  ed uno scrum master che cambierà ogni settimana
 -dispositivi, ogni sviluppatore avrà a disposizione pc e tablet
--applicazioni e siti  di diverso genere, come app per la comunicazione , GitHub per condividere il progetto e gestire le modifiche, IDE per la stesura del codice e UML per i diagrammmi 
+-applicazioni e siti  di diverso genere, come app per la comunicazione , GitHub per condividere il progetto e gestire le modifiche, IDE per la stesura del codice e UML per i diagrammi 
 -ambienti di lavoro, il team si riuonirà in aula b-103 
 ## 12. Budget @mattcolo01
 Essendo un progetto universitario la risorsa più importante è il tempo: stimiamo che ogni membro lavorerà 50h, per un totale di 200h. Queste verranno impiegate a grandi linee nel seguente modo:
@@ -81,11 +81,11 @@ Essendo un progetto universitario la risorsa più importante è il tempo: stimia
 Il compenso non sarà monetario bensì un bel voto, per cui il team mette a disposizione un budget di 100€ che sarà impiegato per benzina e caffè.
 
 ## 13. Cambiamenti @pierGit7
-Ogni cambiamento sarà attentamento discusso con ogni membro. Essendo una 
+Ogni cambiamento sarà attentamente discusso con ogni membro. Essendo una 
 squadra agile avremo una forte comunicazione grazie alle comuni app di 
 messagistica, ed usfruiremo anche del "daily scrum" o "weekly scrum" dato
 che ci riuniremo ogni settimana. Il passo finale spetta al project-manager 
-che dovrà accettare le issue su GitHub.
+che dovrà accettare le issues su GitHub.
 
 ## 14. Consegna @andrearoota
 La consegna finale avverrà entro il 31/12/2022, con possibile manutenzione fino al 05/01/2023.
