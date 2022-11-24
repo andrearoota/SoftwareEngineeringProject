@@ -46,13 +46,14 @@ Il team è composto da quattro persone:
 Lo Scrum Master verrà fatto a rotazione per coinvolgere e far apprendere il ruolo a tutti i membri del team.
 
 ## 8. Metodi e tecniche @pierGit7
-I due team si incontreranno per discutere i diagrammi da utilizzare per modellare il programma.
-I casi d'uso del programma verranno implementati con lo  USE-CASE DIAGRAM. La modellazione delle classi
+Per modellare il programma e avere una visione più ampia sulle funzionalità del progetto useremo diversi tipi di diagrammi grazie ad UML.
+Per identificare i casi d'uso il project-manager e il product owner dovranno incontrarsi, per definire le specifiche richieste da inserire anche nel product backlog. Una volta identificati i casi d'uso e gli attori inseriremo tutto nello USE CASE DIAGRAM.
+ La modellazione delle classi
 e la comunicazione tra di esse verrà implementata grazie al UML CLASS DIAGRAM, questo diagramma 
-ci permetterà di sviluppare il nostro codice con attributi e metodi da attribuire alle classi.
-Per modellare in modo sequenziale ed ordinate le operazioni useremo il SEQUENCE DIAGRAM 
+ci permetterà di identificare attributi e metodi da inserire nelle classi.
+Inoltre possiamo vedere ogni operazione come un insieme di messaggi che vengono scambiati tra classi. Per fare ciò useremo il SEQUENCE DIAGRAM che fornendoci una modellazione sequenziale riuscirà a dare un ordine di esecuzione ad ogni operazione.
 Per modellare i dati da salvare nel nostro db, utilizzeremo un ER CLASS DIAGRAM dove 
-definiremo le varie tabelle da memorizzare e le varie relazioni (con le diverse cardinalità).
+definiremo le varie tabelle da memorizzare e le relazioni (con le diverse cardinalità).
 
 ## 9. Garanzia di qualità @mattcolo01
 iso 9001
@@ -68,12 +69,11 @@ Il progetto viene suddiviso in diversi macro componenti:
 Ogni membro del team partecipa attivamente allo sviluppo dei vari componenti.
 
 ## 11. Risorse @pierGit7
-Le risorse utilizzate sono:
--4 sviluppatori
--4 computer e altri strumenti informatici(ipad)
--aula b-103 per incontri con il cliente e riunioni 
--connessione e illuminazione offerti dall'università
-
+Per la realizzazione di questo progetto abbiamo usufruito di diverse risorse:
+-Il team , formato da 4 sviluppatori, nei quali è compreso un projetct-manager  ed uno scrum master che cambierà ogni settimana
+-dispositivi, ogni sviluppatore avrà a disposizione pc e tablet
+-applicazioni e siti  di diverso genere, come app per la comunicazione , GitHub per condividere il progetto e gestire le modifiche, IDE per la stesura del codice e UML per i diagrammmi 
+-ambienti di lavoro, il team si riuonirà in aula b-103 
 ## 12. Budget @mattcolo01
 Essendo un progetto universitario la risorsa più importante è il tempo: stimiamo che ogni membro lavorerà 50h, per un totale di 200h. Queste verranno impiegate a grandi linee nel seguente modo:
 - 150 ore di progettazione
@@ -81,8 +81,11 @@ Essendo un progetto universitario la risorsa più importante è il tempo: stimia
 Il compenso non sarà monetario bensì un bel voto, per cui il team mette a disposizione un budget di 100€ che sarà impiegato per benzina e caffè.
 
 ## 13. Cambiamenti @pierGit7
-Per la gestione dei cambiamenti verrà sollevata una issue su github che verrà 
-revisionata dal project manager e approvata dallo stesso
+Ogni cambiamento sarà attentamento discusso con ogni membro. Essendo una 
+squadra agile avremo una forte comunicazione grazie alle comuni app di 
+messagistica, ed usfruiremo anche del "daily scrum" o "weekly scrum" dato
+che ci riuniremo ogni settimana. Il passo finale spetta al project-manager 
+che dovrà accettare le issue su GitHub.
 
 ## 14. Consegna @andrearoota
 La consegna finale avverrà entro il 31/12/2022, con possibile manutenzione fino al 05/01/2023.
