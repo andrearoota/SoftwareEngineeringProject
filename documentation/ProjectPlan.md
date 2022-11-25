@@ -39,8 +39,7 @@ Per quanto riguarda le attività di gestione ordinaria:
   
 Questi report constanti permetteranno un controllo continuativo dello sviluppo del progetto.
 
-Per quanto riguarda la gestione degli elementi di configurazione:
-
+Per quanto riguarda la gestione degli elementi di configurazione:\\
   -ogni richiesta di modifica deve essere autorizzata dal project manager
 
 
