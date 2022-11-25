@@ -32,25 +32,18 @@ Il software verrà implementato con un'architettura client-server:
 ## 5. Attività di gestione @camillamazzoleni
 Le attività di gestione sono necessarie per gestire e controllare tutti gli artifatti prodotti nel corso dello sviluppo del progetto.
 Per quanto riguarda le attività di gestione ordinaria:
-
-  -Ogni giorno verrà effettuato un Daily Scrum, in modo che ogni componente del gruppo sia informato sul progresso.
- 
-  -Alla fine di ogni Sprint avrà luogo uno Sprint view, per la verifica e la validazione di questo. 
-  
+- Ogni giorno verrà effettuato un Daily Scrum, in modo che ogni componente del gruppo sia informato sul progresso.
+- Alla fine di ogni Sprint avrà luogo uno Sprint view, per la verifica e la validazione di questo.  
 Questi report constanti permetteranno un controllo continuativo dello sviluppo del progetto.
-
-Per quanto riguarda la gestione degli elementi di configurazione:\\
-  -ogni richiesta di modifica deve essere autorizzata dal project manager
+Per quanto riguarda la gestione degli elementi di configurazione, ogni richiesta di modifica deve essere autorizzata dal project manager
 
 
 ## 6. Rischi @camillamazzoleni
 I rischi maggiori sono:
 - mancare la consegna finale del progetto causa impegni universitari e lavorativi di ciascun membro del team.
-- 50 ore di sviluppo
-
--non riuscire a sviluppare un algoritmo abbastanza sofisticato che quindi non può essere utilizzato.
--possibili problemi per ottenere datasets sull'andamento dello stock exchange.
--possibili problemi per ottenere autorizzazione dalle banche per le transazioni.
+- non riuscire a sviluppare un algoritmo abbastanza sofisticato che quindi non può essere utilizzato.
+- possibili problemi per ottenere datasets sull'andamento dello stock exchange.
+- possibili problemi per ottenere autorizzazione dalle banche per le transazioni.
 
 ## 7. Personale @camillamazzoleni
 Il team è composto da quattro persone:
