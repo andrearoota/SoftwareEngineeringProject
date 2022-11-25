@@ -36,7 +36,7 @@ Per quanto riguarda le attività di gestione ordinaria:
   -Alla fine di ogni Sprint avrà luogo uno Sprint view, per la verifica e la validazione di questo. 
 Questi report constanti permetteranno un controllo continuativo dello sviluppo del progetto.
 Per quanto riguarda la gestione degli elementi di configurazione:
-  -ogni richiesta di modifica deve essere autorizzata dal project manager.
+  -ogni richiesta di modifica deve essere autorizzata dal project manager
 
 
 ## 6. Rischi @camillamazzoleni
