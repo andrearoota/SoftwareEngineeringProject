@@ -45,7 +45,9 @@ Per quanto riguarda la gestione degli elementi di configurazione:\\
 
 ## 6. Rischi @camillamazzoleni
 I rischi maggiori sono:
--mancare la consegna finale del progetto causa impegni universitari e lavorativi di ciascun membro del team.
+- mancare la consegna finale del progetto causa impegni universitari e lavorativi di ciascun membro del team.
+- 50 ore di sviluppo
+
 -non riuscire a sviluppare un algoritmo abbastanza sofisticato che quindi non può essere utilizzato.
 -possibili problemi per ottenere datasets sull'andamento dello stock exchange.
 -possibili problemi per ottenere autorizzazione dalle banche per le transazioni.
