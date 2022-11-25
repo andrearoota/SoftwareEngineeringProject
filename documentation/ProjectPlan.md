@@ -33,6 +33,8 @@ Il software verrà implementato con un'architettura client-server:
 Le attività di gestione sono necessarie per gestire e controllare tutti gli artifatti prodotti nel corso dello sviluppo del progetto.
 Per quanto riguarda le attività di gestione ordinaria:
   -Ogni giorno verrà effettuato un Daily Scrum, in modo che ogni componente del gruppo sia informato sul progresso.
+  
+ 
   -Alla fine di ogni Sprint avrà luogo uno Sprint view, per la verifica e la validazione di questo. 
 Questi report constanti permetteranno un controllo continuativo dello sviluppo del progetto.
 Per quanto riguarda la gestione degli elementi di configurazione:
