@@ -51,6 +51,7 @@ Il team è composto da quattro persone:
 2. Mazzoleni Camilla (frontend, statistical models developer, reviewer)
 3. Rota Andrea (backend, reviewer, progettista database)
 4. Sorgiovanni Pier Francesco (project manager, backend, statistical models developer)
+
 Lo Scrum Master verrà fatto a rotazione per coinvolgere e far apprendere il ruolo a tutti i membri del team.
 
 ## 8. Metodi e tecniche @pierGit7
