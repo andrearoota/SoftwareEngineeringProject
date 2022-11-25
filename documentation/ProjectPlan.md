@@ -30,19 +30,28 @@ Il software verrà implementato con un'architettura client-server:
 
 
 ## 5. Attività di gestione @camillamazzoleni
+Le attività di gestione sono necessarie per gestire e controllare tutti gli artifatti prodotti nel corso dello sviluppo del progetto.
+Per quanto riguarda le attività di gestione ordinaria:
+  -Ogni giorno verrà effettuato un Daily Scrum, in modo che ogni componente del gruppo sia informato sul progresso.
+  -Alla fine di ogni Sprint avrà luogo uno Sprint view, per la verifica e la validazione di questo. 
+Questi report constanti permetteranno un controllo continuativo dello sviluppo del progetto.
+Per quanto riguarda la gestione degli elementi di configurazione:
+  -ogni richiesta di modifica deve essere autorizzata dal project manager.
+
 
 ## 6. Rischi @camillamazzoleni
-Il rischio maggiore è mancare la consegna finale del progetto causa impegni universitari e lavorativi di ciascun membro del team.
--non riuscire a sviluppare un algoritmo abbastanza sofisticato che quindi non può essere utilizzato
--possibili problemi per ottenere datasets sull'andamento dello stock exchange
--possibili problemi per ottenere autorizzazione dalle banche per le transazioni
+I rischi maggiori sono:
+-mancare la consegna finale del progetto causa impegni universitari e lavorativi di ciascun membro del team.
+-non riuscire a sviluppare un algoritmo abbastanza sofisticato che quindi non può essere utilizzato.
+-possibili problemi per ottenere datasets sull'andamento dello stock exchange.
+-possibili problemi per ottenere autorizzazione dalle banche per le transazioni.
 
 ## 7. Personale @camillamazzoleni
 Il team è composto da quattro persone:
-1. Colombo Matteo (frontend e tester)
-2. Mazzoleni Camilla (frontend e reviewer)
+1. Colombo Matteo (frontend, tester)
+2. Mazzoleni Camilla (frontend, statistical models developer, reviewer)
 3. Rota Andrea (backend, reviewer, progettista database)
-4. Sorgiovanni Pier Francesco (backend, project manager, tester)
+4. Sorgiovanni Pier Francesco (project manager, backend, statistical models developer)
 Lo Scrum Master verrà fatto a rotazione per coinvolgere e far apprendere il ruolo a tutti i membri del team.
 
 ## 8. Metodi e tecniche @pierGit7
