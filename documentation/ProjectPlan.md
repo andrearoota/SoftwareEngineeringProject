@@ -6,7 +6,7 @@ L'utente, nella fase di registrazione crea un profilo, in cui specifica la fasci
 
 L'utente può monitorare l'andamento del suo portafoglio grazie ad un'interfaccia grafica semplice e intuitiva; può anche decidere di cambiare profilo di rischio, fare l'upgrade a una versione premium che da accesso a maggiori garanzie, oppure vendere tutto e prelevare i fondi.
 
-Il software di trading ha quindi due funzionalità principali: una di previsione e una di analisi del rischio. Per la previsione implementeremo un'analisi di serie storiche. Utilizzando modelli regressivi, mobile average (MA) ed ARMA sarà possibile determinare il trend, e quindi determinare quando conviene comprare e quando vendere. L'analisi di rischio è necessaria per determinare in quale fascia di rischio rientrerebbe l'investimento. In questo modo, per semplicità, il software categorizza gli investimenti in 3 categorie (basso rischio, medio rischio, alto rischio) in modo da scegliere l'investimento più adatto all'utente, in base al suo profilo.
+Il software di trading ha quindi due funzionalità principali: una di previsione e una di analisi del rischio. Per la previsione implementeremo un'analisi di serie storiche. Utilizzando modelli regressivi, moving average (MA) ed ARMA sarà possibile determinare il trend, e quindi determinare quando conviene comprare e quando vendere. L'analisi di rischio è necessaria per determinare in quale fascia di rischio rientrerebbe l'investimento. In questo modo, per semplicità, il software categorizza gli investimenti in 3 categorie (basso rischio, medio rischio, alto rischio) in modo da scegliere l'investimento più adatto all'utente, in base al suo profilo.
 
 ## 2. Modello di processo @andrearoota
 Il modello di processo agile selezionato per sviluppare il progetto è il framework SCRUM.
@@ -20,7 +20,7 @@ Il team è composto da quattro persone:
 3. Rota Andrea
 4. Sorgiovanni Pier Francesco
 Il team è suddiviso tra chi si occupa di frontend (Colombo, Mazzoleni) e chi di backend (Rota, Sorgiovanni). Per ogni sotto-team è presente un reviewer (Colombo, Rota) che revisiona il codice della sua area di progetto.
-Il gruppo si incontra ogni sabato mattina in aula B-103 dell'Università degli Studi di Bergamo, mentre ogni sotto team si aggiorna quotidinamente attraverso video-call.
+Il gruppo si incontra ogni sabato mattina in aula B-103 dell'Università degli Studi di Bergamo, mentre ogni sotto team si aggiorna quotidinamente attraverso video-call. Ogni giorno ci sarà un breve Daily Scrum.
 GitHub è lo strumento prescelto sia per la condivisione del codice, la gestione delle versioni e le richieste di modifica, sia per la gestione della documentazione.
 
 ## 4. Standard, linee guida, procedure @andrearoota
@@ -30,19 +30,28 @@ Il software verrà implementato con un'architettura client-server:
 
 
 ## 5. Attività di gestione @camillamazzoleni
+Le attività di gestione sono necessarie per gestire e controllare tutti gli artifatti prodotti nel corso dello sviluppo del progetto.
+Per quanto riguarda le attività di gestione ordinaria:
+- Ogni giorno verrà effettuato un Daily Scrum, in modo che ogni componente del gruppo sia informato sul progresso.
+- Alla fine di ogni Sprint avrà luogo uno Sprint review, per la verifica e la validazione di questo.  
+Questi report constanti permetteranno un controllo continuativo dello sviluppo del progetto.
+Per quanto riguarda la gestione degli elementi di configurazione, ogni richiesta di modifica deve essere autorizzata dal project manager
+
 
 ## 6. Rischi @camillamazzoleni
-Il rischio maggiore è mancare la consegna finale del progetto causa impegni universitari e lavorativi di ciascun membro del team.
--non riuscire a sviluppare un algoritmo abbastanza sofisticato che quindi non può essere utilizzato
--possibili problemi per ottenere datasets sull'andamento dello stock exchange
--possibili problemi per ottenere autorizzazione dalle banche per le transazioni
+I rischi maggiori sono:
+- mancare la consegna finale del progetto causa impegni universitari e lavorativi di ciascun membro del team.
+- non riuscire a sviluppare un algoritmo abbastanza sofisticato che quindi non può essere utilizzato.
+- possibili problemi per ottenere datasets sull'andamento dello stock exchange.
+- possibili problemi per ottenere autorizzazione dalle banche per le transazioni.
 
 ## 7. Personale @camillamazzoleni
 Il team è composto da quattro persone:
-1. Colombo Matteo (frontend e tester)
-2. Mazzoleni Camilla (frontend e reviewer)
+1. Colombo Matteo (frontend, reviewer, tester)
+2. Mazzoleni Camilla (product owner, frontend, statistical models developer)
 3. Rota Andrea (backend, reviewer, progettista database)
-4. Sorgiovanni Pier Francesco (backend, project manager, tester)
+4. Sorgiovanni Pier Francesco (project manager, backend, statistical models developer)
+
 Lo Scrum Master verrà fatto a rotazione per coinvolgere e far apprendere il ruolo a tutti i membri del team.
 
 ## 8. Metodi e tecniche @pierGit7
@@ -56,8 +65,7 @@ Per modellare i dati da salvare nel nostro db, utilizzeremo un ER CLASS DIAGRAM 
 definiremo le varie tabelle da memorizzare e le relazioni (con le diverse cardinalità).
 
 ## 9. Garanzia di qualità @mattcolo01
-iso 9001
-//aiuto cosa devo dire sulla iso 9001
+Nella progettazione del nostro applicativo seguiremo le linee guida indicate nella norma ISO 9001, con una particolare attenzione alla Sezione 5 - Leadership e alla Sezione 6 - Pianificazione. Per quanto riguarda il lato più specificatamente di coding adotteremo anche il modello di MCCall e utilizzeremo il protocollo https per rendere sicuro il nostro software nelle fasi critiche, come il login e le transazioni.
 
 ## 10. Pacchetti di lavoro @andrearoota
 Il progetto viene suddiviso in diversi macro componenti:
