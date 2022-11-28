@@ -64,8 +64,7 @@ Per modellare i dati da salvare nel nostro db, utilizzeremo un ER CLASS DIAGRAM 
 definiremo le varie tabelle da memorizzare e le varie relazioni (con le diverse cardinalità).
 
 ## 9. Garanzia di qualità @mattcolo01
-iso 9001
-//aiuto cosa devo dire sulla iso 9001
+Nella progettazione del nostro applicativo seguiremo le linee guida indicate nella norma ISO 9001, con una particolare attenzione alla Sezione 5 - Leadership e alla Sezione 6 - Pianificazione. Per quanto riguarda il lato più specificatamente di coding adotteremo anche il modello di MCCall, oltre a rendere sicuro il nostro software nelle fasi critiche, ovvero il login e le transazioni.
 
 ## 10. Pacchetti di lavoro @andrearoota
 Il progetto viene suddiviso in diversi macro componenti:
