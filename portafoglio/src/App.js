@@ -8,19 +8,21 @@ import MoneyPage from './pages/MoneyPage';
 import NotificationsPage from './pages/NotificationsPage';
 import SettingsPage from './pages/SettingsPage';
 
-function App() {
-  return (
-    <div>
-      <Routes>
-        <Route exact path='/' element={<LoginPage />} />
-        <Route exact path='/sign-in' element={<SigninPage />} />
-        <Route exact path='/analytics' element={<AnalyticsPage />} />
-        <Route exact path='/money' element={<MoneyPage />} />
-        <Route exact path='/notifications' element={<NotificationsPage />} />
-        <Route exact path='/settings' element={<SettingsPage />} />
-      </Routes>
-    </div>
-  );
+class App extends React.Component {
+  render(){
+    return (
+      <div>
+        <Routes>
+          <Route exact path='/' element={<LoginPage />} />
+          <Route exact path='/sign-in' element={<SigninPage />} />
+          <Route exact path='/analytics' element={<AnalyticsPage />} />
+          <Route exact path='/money' element={<MoneyPage />} />
+          <Route exact path='/notifications' element={<NotificationsPage />} />
+          <Route exact path='/settings' element={<SettingsPage />} />
+        </Routes>
+      </div>
+    );
+  }
 }
 
 export default App;

@@ -8,7 +8,8 @@ import MoneyPage from './pages/MoneyPage';
 import NotificationsPage from './pages/NotificationsPage';
 import SettingsPage from './pages/SettingsPage';
 
-function App() {
+class App extends React.Component {
+  render(){
   return (
     <div>
       <Routes>
@@ -21,6 +22,7 @@ function App() {
       </Routes>
     </div>
   );
+  }
 }
 
 export default App;
