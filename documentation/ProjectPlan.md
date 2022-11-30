@@ -65,7 +65,7 @@ Per modellare i dati da salvare nel nostro db, utilizzeremo un ER CLASS DIAGRAM 
 definiremo le varie tabelle da memorizzare e le relazioni (con le diverse cardinalità).
 
 ## 9. Garanzia di qualità @mattcolo01
-Nella progettazione del nostro applicativo seguiremo le linee guida indicate nella norma ISO 9001, con una particolare attenzione alla Sezione 5 - Leadership e alla Sezione 6 - Pianificazione. Per quanto riguarda il lato più specificatamente di coding adotteremo anche il modello di MCCall e utilizzeremo il protocollo https per rendere sicuro il nostro software nelle fasi critiche, come il login e le transazioni.
+Nella progettazione del nostro applicativo seguiremo le linee guida indicate nella norma ISO 9001, con una particolare attenzione alla Sezione 5 - Leadership e alla Sezione 6 - Pianificazione. Per quanto riguarda il lato più specificatamente di coding adotteremo anche il modello di MCCall e renderemo sicuro il nostro software nelle fasi critiche, come il login e le transazioni.
 
 ## 10. Pacchetti di lavoro @andrearoota
 Il progetto viene suddiviso in diversi macro componenti:
@@ -82,6 +82,7 @@ Per la realizzazione di questo progetto abbiamo usufruito di diverse risorse:
 -dispositivi, ogni sviluppatore avrà a disposizione pc e tablet
 -applicazioni e siti  di diverso genere, come app per la comunicazione , GitHub per condividere il progetto e gestire le modifiche, IDE per la stesura del codice e UML per i diagrammi 
 -ambienti di lavoro, il team si riuonirà in aula b-103 
+
 ## 12. Budget @mattcolo01
 Essendo un progetto universitario la risorsa più importante è il tempo: stimiamo che ogni membro lavorerà 50h, per un totale di 200h. Queste verranno impiegate a grandi linee nel seguente modo:
 - 150 ore di progettazione
