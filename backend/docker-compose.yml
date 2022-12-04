@@ -85,6 +85,14 @@ services:
             - '/dev/shm:/dev/shm'
         networks:
             - sail
+    frontend:
+        container_name: frontend
+        image: frontend-test
+        build:
+            context: ../frontend
+            dockerfile: Dockerfile
+        ports:
+        - 8080:80
 networks:
     sail:
         driver: bridge
