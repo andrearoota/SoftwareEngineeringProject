@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  app:
+    container_name: frontend
+    image: frontend-test
+    build:
+      context: .
+    ports:
+      - 8080:80
