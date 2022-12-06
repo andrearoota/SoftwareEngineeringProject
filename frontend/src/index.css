@@ -31,3 +31,9 @@ code {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.menu{
+  font-size: 24px;
+  margin: 5px;
+  border-style: hidden;
+  background: none;
+}

@@ -14,7 +14,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state={
-      menuAperto: true,
+      menuAperto: false,
     }
   }
 
