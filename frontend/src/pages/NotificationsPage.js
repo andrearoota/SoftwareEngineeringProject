@@ -7,7 +7,7 @@ class NotificationsPage extends React.Component {
 
     render(){
         return <div>
-            <button onClick={this.props.apriMenu} className='menu'><i class='fas fa-bars'/></button>
+            <button onClick={this.props.apriMenu} className='menu'><i className='fas fa-bars'/></button>
         </div>;
     }
 }

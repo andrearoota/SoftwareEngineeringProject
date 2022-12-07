@@ -18,74 +18,96 @@ class App extends React.Component {
       logged: false,
     }
     this.gestoreLogin=this.gestoreLogin.bind(this);
+    this.gestoreSignin=this.gestoreSignin.bind(this);
+    this.gestoreSoldi=this.gestoreSoldi.bind(this);
   }
 
   gestoreLogin(event) {
     event.preventDefault();
-    if(document.getElementById('user').value === 'admin' && document.getElementById('pw').value === 'admin'){
-        console.log(window.location.pathname);
-        this.setState={logged: true};
+    if(document.getElementById('CF').value === 'admin' && document.getElementById('PW').value === 'admin'){
+      this.setState({logged:true,});
     }
+  }
+
+  gestoreSignin(event) {
+    event.preventDefault();
+    if( document.getElementById("pw").value !== document.getElementById("pw2").value ) {
+      return alert("Le password non corrispondono");
+    } else {
+      let data={
+        name: document.getElementById('nome').value,
+        surname: document.getElementById('cognome').value,
+        cf: document.getElementById('cf').value,
+        password: document.getElementById('pw').value
+      };
+
+      fetch('https://portafoglio-c87fe-default-rtdb.firebaseio.com/utenti.json',
+        { method: 'POST',
+          body: JSON.stringify(data),}
+      )
+      .then(response => response.json()) //credo che sia inutile se non la uso
+      .then(()=>{return alert("Registrazione eseguita, vai alla pagina di login per entrare nel sito")});
+    }
+  }
+
+  gestoreSoldi(event){
+    event.preventDefault();
   }
 
   render(){
     return (
-      <div>
-        <div>
-          <Routes>
-            <Route exact path='/' element={<LandingPage />} />
-            <Route exact path='/login' element={
-              //<LoginPage onLogin={this.gestoreLogin} isLogged={this.state.logged}/>
-              this.state.logged ? <Navigate to='/analytics' replace/> : <LoginPage onLogin={this.gestoreLogin}/> 
-            } />
-            <Route exact path='/sign-in' element={<SigninPage />} />
-            <Route exact path='/analytics' element={
-              <div>
-              <AnalyticsPage apriMenu={ ()=>{this.setState({menuAperto: true})} } />
-              {this.state.menuAperto?
-                <Backdrop onClick={()=>{
-                  this.setState({menuAperto: false})
-                }} />
-              : null}
-              {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
-              </div>
-            } />
-            <Route exact path='/money' element={
-              <div>
-              <MoneyPage  apriMenu={ ()=>{this.setState({menuAperto: true})} } />
-              {this.state.menuAperto?
-                <Backdrop onClick={()=>{
-                  this.setState({menuAperto: false})
-                }} />
-              : null}
-              {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
-              </div>
-            } />
-            <Route exact path='/notifications' element={
-              <div>
-              <NotificationsPage  apriMenu={ ()=>{this.setState({menuAperto: true})} } />
-              {this.state.menuAperto?
-                <Backdrop onClick={()=>{
-                  this.setState({menuAperto: false})
-                }}/>
-              : null}
-              {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
-              </div>
-            } />
-            <Route exact path='/settings' element={
-              <div>
-              <SettingsPage  apriMenu={ ()=>{this.setState({menuAperto: true})} } />
-              {this.state.menuAperto?
-                <Backdrop onClick={()=>{
-                  this.setState({menuAperto: false})
-                }}/>
-              : null}
-              {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
-              </div>
-            } />
-          </Routes>
-        </div>
-      </div>
+      <Routes>
+        <Route exact path='/' element={<LandingPage />} />
+        <Route exact path='/login' element={
+          this.state.logged ? <Navigate to='/app/analytics' replace /> : <LoginPage onLogin={this.gestoreLogin}/> 
+        } />
+        <Route exact path='/sign-in' element={ <SigninPage onSignin={this.gestoreSignin}/> }/>
+        <Route path='/app' element={this.state.logged ? <Navigate replace to='/login' /> : null} />
+        <Route exact path='/app/analytics' element={
+          <div>
+            <AnalyticsPage apriMenu={ ()=>{this.setState({menuAperto: true});} } />
+            {this.state.menuAperto?
+              <Backdrop onClick={()=>{
+                this.setState({menuAperto: false})
+              }} />
+            : null}
+            {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
+          </div>
+        } />
+        <Route exact path='/app/money' element={
+          <div>
+            <MoneyPage onTransaction={this.gestoreSoldi} apriMenu={ ()=>{this.setState({menuAperto: true})} } />
+            {this.state.menuAperto?
+              <Backdrop onClick={()=>{
+                this.setState({menuAperto: false})
+              }} />
+            : null}
+            {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
+          </div>
+        } />
+        <Route exact path='/app/notifications' element={
+          <div>
+            <NotificationsPage  apriMenu={ ()=>{this.setState({menuAperto: true})} } />
+            {this.state.menuAperto?
+              <Backdrop onClick={()=>{
+                this.setState({menuAperto: false})
+              }}/>
+            : null}
+            {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
+          </div>
+        } />
+        <Route exact path='/app/settings' element={
+          <div>
+            <SettingsPage  apriMenu={ ()=>{this.setState({menuAperto: true})} } />
+            {this.state.menuAperto?
+              <Backdrop onClick={()=>{
+                this.setState({menuAperto: false})
+              }}/>
+            : null}
+            {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
+          </div>
+        } />
+      </Routes>
     );
   }
 }

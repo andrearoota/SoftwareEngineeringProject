@@ -8,12 +8,15 @@ class MoneyPage extends React.Component{
 
     render(){
         return <div>
-            <button onClick={this.props.apriMenu} className='menu'><i class='fas fa-bars'/></button>
-            <form id="money" className="">
-                Inserisci la quantità di denaro che vuoi caricare<br />
+            <button onClick={this.props.apriMenu} className='menu'><i className='fas fa-bars'/></button>
+            <form id="money" className={classes.spotlight} onSubmit={this.props.onTransaction}>
+                1. Inserisci l'importo<br />
                 <input type='number' default='100' min='1' max='100000' />
-                <br />
-                <button type="submit" className={classes.go}>Carica</button>
+                <br />2. Seleziona se vuoi caricare il denaro o prelevarlo<br />
+                Ricordiamo che per prelevare del denaro questo non deve essere depositato in alcun investimento <br />
+                {/* <input type="radio">Voglio caricare il denaro</input> ////vedi w3s 
+                <input type="radio">Voglio prelevare il denaro</input> */}
+                <button type="submit" className={classes.go}>Conferma</button>
             </form>
         </div>;
     }

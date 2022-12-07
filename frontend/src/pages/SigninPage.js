@@ -3,13 +3,16 @@ import { Link } from "react-router-dom";
 import classes from './SigninPage.module.css';
 
 class SigninPage extends React.Component{
+    constructor(props){
+        super(props);
+    }
     render(){
         return(
             <div>
                 <div className="navbar">
                     <Link to='/login'><button className="navigation">Già registrato? Accedi</button></Link>
                 </div>
-                <form id="sign-in" className={classes.spotlight}>
+                <form id="sign-in" className={classes.spotlight} onSubmit={this.props.onSignin}>
                     Nome<br />
                     <input type="text" id="nome" required/>
                     <br />Cognome<br />

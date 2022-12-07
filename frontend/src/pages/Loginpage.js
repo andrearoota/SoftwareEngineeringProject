@@ -14,10 +14,10 @@ class LoginPage extends React.Component {
                     <Link to="/sign-in"><button className="navigation">Non hai un account? Registrati</button></Link>
                 </div>
                 <form id="login" onSubmit={this.props.onLogin} className={classes.spotlight}>
-                    Username<br />
-                    <input type="text" id="user" required/>
+                    Codice fiscale<br />
+                    <input type="text" id="CF" required/>
                     <br />Password<br />
-                    <input type="password" id="pw" required/>
+                    <input type="password" id="PW" required/>
                     <br /><button type="submit" className={classes.go}>Entra</button>
                     <div className={classes.fp}>
                         <a onClick={ ()=>{return alert("Cazzi tuoi")} } >Password dimenticata?</a>
