@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import LoginPage from './pages/Loginpage';
 import SigninPage from './pages/SigninPage';
 import AnalyticsPage from './pages/AnalyticsPage';
@@ -15,6 +15,16 @@ class App extends React.Component {
     super();
     this.state={
       menuAperto: false,
+      logged: false,
+    }
+    this.gestoreLogin=this.gestoreLogin.bind(this);
+  }
+
+  gestoreLogin(event) {
+    event.preventDefault();
+    if(document.getElementById('user').value === 'admin' && document.getElementById('pw').value === 'admin'){
+        console.log(window.location.pathname);
+        this.setState={logged: true};
     }
   }
 
@@ -24,7 +34,10 @@ class App extends React.Component {
         <div>
           <Routes>
             <Route exact path='/' element={<LandingPage />} />
-            <Route exact path='/login' element={<LoginPage />} />
+            <Route exact path='/login' element={
+              //<LoginPage onLogin={this.gestoreLogin} isLogged={this.state.logged}/>
+              this.state.logged ? <Navigate to='/analytics' replace/> : <LoginPage onLogin={this.gestoreLogin}/> 
+            } />
             <Route exact path='/sign-in' element={<SigninPage />} />
             <Route exact path='/analytics' element={
               <div>
@@ -32,7 +45,7 @@ class App extends React.Component {
               {this.state.menuAperto?
                 <Backdrop onClick={()=>{
                   this.setState({menuAperto: false})
-                }}/>
+                }} />
               : null}
               {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
               </div>
@@ -43,7 +56,7 @@ class App extends React.Component {
               {this.state.menuAperto?
                 <Backdrop onClick={()=>{
                   this.setState({menuAperto: false})
-                }}/>
+                }} />
               : null}
               {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
               </div>

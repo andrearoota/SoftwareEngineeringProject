@@ -3,10 +3,8 @@ import { Link, Navigate } from "react-router-dom";
 import classes from './LoginPage.module.css';
 
 class LoginPage extends React.Component {
-    gestoreLogin(event) {
-        event.preventDefault();
-        if(document.getElementById('user').value === 'admin' && document.getElementById('pw').value === 'admin')
-            console.log(window.location.pathname);
+    constructor(props){
+        super(props);
     }
 
     render(){
@@ -15,7 +13,7 @@ class LoginPage extends React.Component {
                 <div className="navbar">
                     <Link to="/sign-in"><button className="navigation">Non hai un account? Registrati</button></Link>
                 </div>
-                <form id="login" onSubmit={this.gestoreLogin} className={classes.spotlight}>
+                <form id="login" onSubmit={this.props.onLogin} className={classes.spotlight}>
                     Username<br />
                     <input type="text" id="user" required/>
                     <br />Password<br />
