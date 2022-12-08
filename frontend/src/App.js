@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import LoginPage from './pages/Loginpage';
 import SigninPage from './pages/SigninPage';
 import AnalyticsPage from './pages/AnalyticsPage';
@@ -19,14 +19,29 @@ class App extends React.Component {
     }
     this.gestoreLogin=this.gestoreLogin.bind(this);
     this.gestoreSignin=this.gestoreSignin.bind(this);
-    this.gestoreSoldi=this.gestoreSoldi.bind(this);
+    this.logout=this.logout.bind(this);
+  }
+
+  logout(){
+    this.setState({logged:false,});
   }
 
   gestoreLogin(event) {
     event.preventDefault();
-    if(document.getElementById('CF').value === 'admin' && document.getElementById('PW').value === 'admin'){
+    /* if(document.getElementById('CF').value === 'admin' && document.getElementById('PW').value === 'admin'){
       this.setState({logged:true,});
-    }
+    } */
+    fetch('https://portafoglio-c87fe-default-rtdb.firebaseio.com/utenti.json')
+    .then((response)=>{ return response.json(); })
+    .then( (data) =>{
+      for (const i in data){
+        if(data[i].cf == document.getElementById('CF').value && data[i].password == document.getElementById('PW').value) {
+          this.setState({logged:true,});
+          return;
+        }
+      }
+      return alert("Username o password errati");
+    } );
   }
 
   gestoreSignin(event) {
@@ -59,7 +74,7 @@ class App extends React.Component {
       <Routes>
         <Route exact path='/' element={<LandingPage />} />
         <Route exact path='/login' element={
-          this.state.logged ? <Navigate to='/app/analytics' replace /> : <LoginPage onLogin={this.gestoreLogin}/> 
+          this.state.logged ? <Navigate to='/app/analytics' replace /> : <LoginPage onLogin={this.gestoreLogin} onLogout={this.logout} /> 
         } />
         <Route exact path='/sign-in' element={ <SigninPage onSignin={this.gestoreSignin}/> }/>
         <Route path='/app' element={this.state.logged ? <Navigate replace to='/login' /> : null} />

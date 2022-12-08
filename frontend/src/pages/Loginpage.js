@@ -1,10 +1,14 @@
 import React from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import classes from './LoginPage.module.css';
 
 class LoginPage extends React.Component {
     constructor(props){
         super(props);
+    }
+
+    componentDidMount(){
+        this.props.onLogout();
     }
 
     render(){
