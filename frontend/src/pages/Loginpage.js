@@ -2,6 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import classes from './LoginPage.module.css';
 
+// LoginPage
+// Renderizza la pagina di login, contenente il form apposito e un bottone per aprire il menu laterale
+// Argomenti:
+// - onLogin funzione che gestisca il submit da parte dell'utente del form suddetto
+
 class LoginPage extends React.Component {
     constructor(props){
         super(props);

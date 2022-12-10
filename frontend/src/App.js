@@ -10,6 +10,14 @@ import Backdrop from './components/Backdrop';
 import MenuLaterale from './components/MenuLaterale';
 import LandingPage from './pages/LandingPage';
 
+// App
+// Il componente che viene renderizzato da index
+// Qua viene gestito tutto:
+// - si imposta il routing
+// - si definiscono le funzioni da passare alle pagine per la gestione dei vari eventi
+// - si gestisce lo stato della pagina
+// - si richiamano selettivamente i componenti da renderizzare
+
 class App extends React.Component {
   constructor(){
     super();
@@ -22,10 +30,14 @@ class App extends React.Component {
     this.logout=this.logout.bind(this);
   }
 
+  //metodo logout: imposta lo stato su non loggato
   logout(){
     this.setState({logged:false,});
   }
 
+  //metodo gestoreLogin: da passare alla pagina di login per gestire l'accesso
+  //invia una richiesta al server
+  //riceve come parametro un evento automaticamente generato dal submit
   async gestoreLogin(event) {
     event.preventDefault();
     const log= new FormData(document.getElementById('login'));
@@ -36,6 +48,9 @@ class App extends React.Component {
     console.log(response);
   }
 
+  //metodo gestoreLogin: da passare alla pagina di registrazione per gestire la medesima
+  //invia una richiesta al server
+  //riceve come parametro un evento automaticamente generato dal submit
   gestoreSignin(event) {
     event.preventDefault();
     const dati= new FormData(document.getElementById('sign-in'));

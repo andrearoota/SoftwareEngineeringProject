@@ -2,6 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import classes from './SigninPage.module.css';
 
+// SigninPage
+// Renderizza la pagina di registrazione, contenente il form apposito e un bottone per aprire il menu laterale
+// Argomenti:
+// - onSignin funzione che gestisca il submit da parte dell'utente del form suddetto
+
 class SigninPage extends React.Component{
     constructor(props){
         super(props);

@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import classes from './LandingPage.module.css';
 import '../index.css';
 
+// LandingPage
+// E' una pagina statica contenente la presentazione del servizio
+// Contiene links alla pagina di login e di registrazione
+
 class LandingPage extends React.Component{
     render(){
         return(

@@ -2,6 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import classi from './MenuLaterale.module.css';
 
+// MenuLaterale
+// Renderizza il menu laterale che viene mostrato in tutte le pagine interne dell' applicazione dopo aver fatto il login 
+// Argomenti (props):
+// - onClick una funzione che gestisca il click di un qualsiasi link del menu
+//      !! il link gia naviga verso la nuova pagina, la funzione deve solo chiudere il menù o cose del genere
+
 class MenuLaterale extends React.Component{
     constructor(props){
         super(props);
