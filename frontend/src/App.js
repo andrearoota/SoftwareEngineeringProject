@@ -26,42 +26,28 @@ class App extends React.Component {
     this.setState({logged:false,});
   }
 
-  gestoreLogin(event) {
+  async gestoreLogin(event) {
     event.preventDefault();
-    /* if(document.getElementById('CF').value === 'admin' && document.getElementById('PW').value === 'admin'){
-      this.setState({logged:true,});
-    } */
-    fetch('https://portafoglio-c87fe-default-rtdb.firebaseio.com/utenti.json')
-    .then((response)=>{ return response.json(); })
-    .then( (data) =>{
-      for (const i in data){
-        if(data[i].cf == document.getElementById('CF').value && data[i].password == document.getElementById('PW').value) {
-          this.setState({logged:true,});
-          return;
-        }
-      }
-      return alert("Username o password errati");
-    } );
+    const log= new FormData(document.getElementById('login'));
+    const email= log.get('mail');
+    const password= log.get('pw');
+    
+    const response=await fetch('${window.location.origin}/api/login/$email/$password', {method: 'POST',} )
+    console.log(response);
   }
 
   gestoreSignin(event) {
     event.preventDefault();
-    if( document.getElementById("pw").value !== document.getElementById("pw2").value ) {
+    const dati= new FormData(document.getElementById('sign-in'));
+    if( dati.get('pw') !== dati.get('pw2') ) {
       return alert("Le password non corrispondono");
     } else {
-      let data={
-        name: document.getElementById('nome').value,
-        surname: document.getElementById('cognome').value,
-        cf: document.getElementById('cf').value,
-        password: document.getElementById('pw').value
-      };
+      const nome= dati.get('nome')+ dati.get('cognome');
+      const mail= dati.get('mail');
+      const password= dati.get('pw');
 
-      fetch('https://portafoglio-c87fe-default-rtdb.firebaseio.com/utenti.json',
-        { method: 'POST',
-          body: JSON.stringify(data),}
-      )
-      .then(response => response.json()) //credo che sia inutile se non la uso
-      .then(()=>{return alert("Registrazione eseguita, vai alla pagina di login per entrare nel sito")});
+      fetch('${window.location.origin}/api/register/$nome/$email/$password', {method: 'POST',})
+      .then(response => console.log(response));
     }
   }
 

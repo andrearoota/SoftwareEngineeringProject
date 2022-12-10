@@ -14,17 +14,17 @@ class SigninPage extends React.Component{
                 </div>
                 <form id="sign-in" className={classes.spotlight} onSubmit={this.props.onSignin}>
                     Nome<br />
-                    <input type="text" id="nome" required/>
+                    <input type="text" name="nome" required/>
                     <br />Cognome<br />
-                    <input type="text" id="cognome" required/>
-                    <br />Codice fiscale<br />
-                    <input type="text" id="cf" required/>
+                    <input type="text" name="cognome" required/>
+                    <br />Email<br />
+                    <input type="text" name="mail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
                     <br />Password<br />
-                    <input type="password" id="pw" required/>
+                    <input type="password" name="pw" required pattern="^[A-Za-z0-9]{8,20}$"/>
                     <br />Conferma la password<br />
-                    <input type="password" id="pw2" required/>
+                    <input type="password" name="pw2" required/>
                     <br />
-                    <input type="checkbox" id="x" required /> Selezionando questa spunta accetti
+                    <input type="checkbox" required /> Selezionando questa spunta accetti
                     <a href='https://www.youtube.com/watch?v=ufwPb3WJ1Og'> i termini e le condizioni del servizio</a>
                     <br />
                     <button type="submit" className={classes.go}>Registrati</button>
