@@ -50,20 +50,22 @@ class App extends React.Component {
     
     const response=await fetch('${window.location.origin}/api/login', { method: 'POST', body: new FormData(document.getElementById('login')), } );
     console.log(response);
+    this.setState({logged:true,});
   }
 
   //metodo gestoreLogin: da passare alla pagina di registrazione per gestire la medesima
   //invia una richiesta al server
   //riceve come parametro un evento automaticamente generato dal submit
-  gestoreSignin(event) {
+  async gestoreSignin(event) {
     event.preventDefault();
     const dati=new FormData(document.getElementById('sign-in'));
     if( dati.get('password') !== dati.get('password2') ) {
       return alert("Le password non corrispondono");
     } else {
-      fetch('${window.location.origin}/api/register', { method: 'POST', body: dati,})
-      .then(response => console.log(response));
+      const response= await fetch('${window.location.origin}/api/register', { method: 'POST', body: dati,})
+      console.log(response);
     }
+    this.setState({logged: true,});
   }
 
   gestoreSoldi(event){
@@ -77,52 +79,52 @@ class App extends React.Component {
         <Route exact path='/login' element={
           this.state.logged ? <Navigate to='/app/analytics' replace /> : <LoginPage onLogin={this.gestoreLogin} onLogout={this.logout} /> 
         } />
-        <Route exact path='/sign-in' element={ <SigninPage onSignin={this.gestoreSignin}/> }/>
-        <Route path='/app' element={this.state.logged ? <Navigate replace to='/login' /> : null} />
-        <Route exact path='/app/analytics' element={
-          <div>
-            <AnalyticsPage apriMenu={ ()=>{this.setState({menuAperto: true});} } />
-            {this.state.menuAperto?
-              <Backdrop onClick={()=>{
-                this.setState({menuAperto: false})
-              }} />
-            : null}
-            {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
-          </div>
-        } />
-        <Route exact path='/app/money' element={
-          <div>
-            <MoneyPage onTransaction={this.gestoreSoldi} apriMenu={ ()=>{this.setState({menuAperto: true})} } />
-            {this.state.menuAperto?
-              <Backdrop onClick={()=>{
-                this.setState({menuAperto: false})
-              }} />
-            : null}
-            {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
-          </div>
-        } />
-        <Route exact path='/app/notifications' element={
-          <div>
-            <NotificationsPage  apriMenu={ ()=>{this.setState({menuAperto: true})} } />
-            {this.state.menuAperto?
-              <Backdrop onClick={()=>{
-                this.setState({menuAperto: false})
-              }}/>
-            : null}
-            {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
-          </div>
-        } />
-        <Route exact path='/app/settings' element={
-          <div>
-            <SettingsPage  apriMenu={ ()=>{this.setState({menuAperto: true})} } />
-            {this.state.menuAperto?
-              <Backdrop onClick={()=>{
-                this.setState({menuAperto: false})
-              }}/>
-            : null}
-            {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
-          </div>
-        } />
+        <Route exact path='/sign-in' element={ this.state.logged ? <Navigate to='/app/analytics' replace /> :
+          <SigninPage onSignin={this.gestoreSignin}/> }/>
+          <Route exact path='/app/analytics' element={
+            <div>
+              <AnalyticsPage apriMenu={ ()=>{this.setState({menuAperto: true});} } />
+              {this.state.menuAperto?
+                <Backdrop onClick={()=>{
+                  this.setState({menuAperto: false})
+                }} />
+              : null}
+              {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
+            </div>
+          } />
+          <Route exact path='/app/money' element={
+            <div>
+              <MoneyPage onTransaction={this.gestoreSoldi} apriMenu={ ()=>{this.setState({menuAperto: true})} } />
+              {this.state.menuAperto?
+                <Backdrop onClick={()=>{
+                  this.setState({menuAperto: false})
+                }} />
+              : null}
+              {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
+            </div>
+          } />
+          <Route exact path='/app/notifications' element={
+            <div>
+              <NotificationsPage  apriMenu={ ()=>{this.setState({menuAperto: true})} } />
+              {this.state.menuAperto?
+                <Backdrop onClick={()=>{
+                  this.setState({menuAperto: false})
+                }}/>
+              : null}
+              {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
+            </div>
+          } />
+          <Route exact path='/app/settings' element={
+            <div>
+              <SettingsPage  apriMenu={ ()=>{this.setState({menuAperto: true})} } />
+              {this.state.menuAperto?
+                <Backdrop onClick={()=>{
+                  this.setState({menuAperto: false})
+                }}/>
+              : null}
+              {this.state.menuAperto? <MenuLaterale onClick={ ()=>this.setState({menuAperto: false}) } />: null}
+            </div>
+          } />
       </Routes>
     );
   }
