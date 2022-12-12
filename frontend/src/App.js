@@ -32,6 +32,12 @@ class App extends React.Component {
 
   //metodo logout: imposta lo stato su non loggato
   logout(){
+    fetch('${window.location.origin/api/logout',
+    {
+      method: 'POST',
+      headers: {'Authorisation': "Bearer TOKEN"},
+      body: null, //da sostituire
+    })
     this.setState({logged:false,});
   }
 
@@ -41,10 +47,8 @@ class App extends React.Component {
   async gestoreLogin(event) {
     event.preventDefault();
     const log= new FormData(document.getElementById('login'));
-    const email= log.get('mail');
-    const password= log.get('pw');
     
-    const response=await fetch('${window.location.origin}/api/login/$email/$password', {method: 'POST',} )
+    const response=await fetch('${window.location.origin}/api/login', { method: 'POST', body: new FormData(document.getElementById('login')), } );
     console.log(response);
   }
 
@@ -53,15 +57,11 @@ class App extends React.Component {
   //riceve come parametro un evento automaticamente generato dal submit
   gestoreSignin(event) {
     event.preventDefault();
-    const dati= new FormData(document.getElementById('sign-in'));
-    if( dati.get('pw') !== dati.get('pw2') ) {
+    const dati=new FormData(document.getElementById('sign-in'));
+    if( dati.get('password') !== dati.get('password2') ) {
       return alert("Le password non corrispondono");
     } else {
-      const nome= dati.get('nome')+ dati.get('cognome');
-      const mail= dati.get('mail');
-      const password= dati.get('pw');
-
-      fetch('${window.location.origin}/api/register/$nome/$email/$password', {method: 'POST',})
+      fetch('${window.location.origin}/api/register', { method: 'POST', body: dati,})
       .then(response => console.log(response));
     }
   }

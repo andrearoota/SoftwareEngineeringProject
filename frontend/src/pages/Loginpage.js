@@ -14,6 +14,7 @@ class LoginPage extends React.Component {
 
     componentDidMount(){
         this.props.onLogout();
+        console.log('logout');
     }
 
     render(){
@@ -24,9 +25,9 @@ class LoginPage extends React.Component {
                 </div>
                 <form id="login" onSubmit={this.props.onLogin} className={classes.spotlight}>
                     Email<br />
-                    <input type="text" name="mail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                    <input type="email" name="email" required />
                     <br />Password<br />
-                    <input type="password" name="pw" required/>
+                    <input type="password" name="password" required/>
                     <br /><button type="submit" className={classes.go}>Entra</button>
                     <div className={classes.fp}>
                         <a onClick={ ()=>{return alert("Cazzi tuoi")} } >Password dimenticata?</a>
