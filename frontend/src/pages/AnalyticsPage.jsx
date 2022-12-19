@@ -31,21 +31,25 @@ const assets=[
   ];
 
 class AnalyticsPage extends React.Component{
+    constructor(props){
+      super(props);
+    }
     render(){
         return (
         <div className="home">
+          <button onClick={this.props.apriMenu} className='menu'><i className='fas fa-bars'/></button>
             <div className="homeContainer">
-            <div className="charts">
-          <Chart title="Investment growth" aspect={2 / 1} />
-        </div>
-            <div className="widgets">
-            {assets.map((item)=>(
-                <Widget prop={item}/>
-            ))}
 
-            </div>
-            </div>
+              <div className="charts">
+                <Chart title="Investment growth" aspect={2 / 1} />
+              </div>
+              <div className="widgets">
+                {assets.map((item)=>(
+                  <Widget prop={item}/>
+                ))}
+              </div>
             
+            </div>
         </div>);
     }
 }
