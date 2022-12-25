@@ -36,8 +36,12 @@ class AnalyticsPage extends React.Component{
     }
     render(){
         return (
+         
         <div className="home">
-          <button onClick={this.props.apriMenu} className='menu'><i className='fas fa-bars'/></button>
+           <div className="menu"> 
+            <button onClick={this.props.apriMenu} className='menu'><i className='fas fa-bars'/></button>
+          </div>
+          
             <div className="homeContainer">
 
               <div className="charts">

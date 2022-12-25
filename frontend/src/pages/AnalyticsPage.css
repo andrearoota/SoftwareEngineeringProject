@@ -22,10 +22,15 @@
 .widgets,
 .charts {
   display: flex;
-  padding: 20px;
+  padding: 10px;
   gap: 40px;
+  height: fit-content;
 }
 
 .charts{
     padding: 5px 20px;
+}
+
+.menu{
+    align-items: right;
 }
