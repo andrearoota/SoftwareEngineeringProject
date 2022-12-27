@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 /**
  * API to handle the core logic of the authentication process.
  */
-Route::controller(UserAuth::class)->group(function () {
-    Route::post('login', 'login');
+Route::controller(UserAuth::class)->prefix('auth')->group(function () {
+    Route::post('login', 'login')->name('login');
     Route::post('register', 'register');
     Route::post('logout', 'logout');
     Route::post('refresh', 'refresh');

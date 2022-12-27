@@ -72,26 +72,34 @@ class UserAuth extends Controller
          * {"message":"...","errors":{"password":["..."]}}
          */
         $request->validate([
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'gender' => 'required|string|max:1|in:m,f',
+            'birthdate' => 'required|date|date_format:Y-m-d',
+            'codice_fiscale' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6',
         ]);
 
         $user = ModelsUser::create([
-            'name' => $request->name,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'gender' => $request->gender,
+            'birthdate' => $request->birthdate,
+            'codice_fiscale' => $request->codice_fiscale,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        $token = Auth::login($user);
+        // $token = Auth::login($user); No login because not approved by admin
         return response()->json([
             'status' => 'success',
             'message' => 'User created successfully',
             'user' => $user,
-            'authorisation' => [
+            /*'authorisation' => [
                 'token' => $token,
                 'type' => 'bearer',
-            ]
+            ]*/
         ]);
     }
 
