@@ -37,22 +37,25 @@ class UserAuth extends Controller
         $credentials = $request->only('email', 'password');
 
         $token = Auth::attempt($credentials);
-        if (!$token) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Unauthorized',
-            ], 401);
+
+        if ($token) {
+            $user = Auth::user();
+            if ($user->approved_by_administrator) {
+                return response()->json([
+                    'status' => 'success',
+                    'user' => $user,
+                    'authorisation' => [
+                        'token' => $token,
+                        'type' => 'bearer',
+                    ]
+                ]);
+            }
         }
 
-        $user = Auth::user();
         return response()->json([
-            'status' => 'success',
-            'user' => $user,
-            'authorisation' => [
-                'token' => $token,
-                'type' => 'bearer',
-            ]
-        ]);
+            'status' => 'error',
+            'message' => 'Unauthorized',
+        ], 401);
     }
 
     /**
