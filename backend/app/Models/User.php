@@ -24,21 +24,21 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var string
      */
-    protected $primaryKey = 'email';
+    protected $primaryKey = 'id';
 
     /**
      * Indicates if the model's ID is auto-incrementing.
      *
      * @var bool
      */
-    public $incrementing = false;
+    public $incrementing = true;
 
     /**
      * The data type of the auto-incrementing ID.
      *
      * @var string
      */
-    protected $keyType = 'string';
+    // protected $keyType = 'int'; only if not integer
 
     /**
      * The attributes that are mass assignable.
@@ -53,6 +53,7 @@ class User extends Authenticatable implements JWTSubject
         'codice_fiscale',
         'email',
         'password',
+        'wallet'
     ];
 
     /**
@@ -74,6 +75,7 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
         'birthdate' => 'datetime',
         'approved_by_administrator' => 'boolean',
+        'wallet' => 'float'
     ];
 
     /**
@@ -83,7 +85,25 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $attributes = [
         'approved_by_administrator' => false,
+        'wallet' => 0
     ];
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * One To Many relationship.
+     * Get the stocks.
+     * 
+     */
+    public function stocks()
+    {
+        return $this->hasMany(Stocks::class);
+    }
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
