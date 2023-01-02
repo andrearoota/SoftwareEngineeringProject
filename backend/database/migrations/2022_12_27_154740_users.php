@@ -20,6 +20,7 @@ return new class extends Migration
             $table->char('gender', 1);
             $table->date('birthdate');
             $table->string('codice_fiscale');
+            $table->float('wallet')->default(0);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
