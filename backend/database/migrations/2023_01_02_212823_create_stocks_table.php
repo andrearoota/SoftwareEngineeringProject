@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('stock_name');
             $table->string('purchase_cost');
+            $table->integer('number_stocks');
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });

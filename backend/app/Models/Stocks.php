@@ -45,6 +45,7 @@ class Stocks extends Model
     protected $fillable = [
         'stock_name',
         'purchase_cost',
+        'number_stocks'
     ];
 
     /**
@@ -63,6 +64,7 @@ class Stocks extends Model
     protected $casts = [
         'email_verified_at' => 'datetime',
         'purchase_cost' => 'string',
+        'number_stocks' => 'int'
     ];
 
     /**
