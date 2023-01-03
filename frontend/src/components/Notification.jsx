@@ -23,7 +23,7 @@ function Notification({prop}) {
   return (
     <div className='notification'>
         <GiPayMoney size={70} /> 
-        <div className='center'>
+        
         <Card border="dark">
         <Card.Header>{data.title}</Card.Header>
         <Card.Body>
@@ -33,7 +33,7 @@ function Notification({prop}) {
           </Card.Text>
         </Card.Body>
         </Card>
-        </div>
+        
     </div>
   )
 }

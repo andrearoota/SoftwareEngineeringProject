@@ -36,13 +36,13 @@ class AnalyticsPage extends React.Component{
     }
     render(){
         return (
-         
-        <div className="home">
            <div className="menu"> 
             <button onClick={this.props.apriMenu} className='menu'><i className='fas fa-bars'/></button>
-          </div>
-          
+            <h1> Analytics </h1>
+         
+          <div className="home">
             <div className="homeContainer">
+           
 
               <div className="charts">
                 <Chart title="Investment growth" aspect={2 / 1} />
@@ -52,7 +52,7 @@ class AnalyticsPage extends React.Component{
                   <Widget prop={item}/>
                 ))}
               </div>
-            
+              </div>
             </div>
         </div>);
     }
