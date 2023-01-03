@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
             $table->string('stock_name');
-            $table->string('purchase_cost');
+            $table->float('purchase_cost');
             $table->integer('number_stocks');
+            $table->float('current_value');
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });

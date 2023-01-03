@@ -21,7 +21,8 @@ class StocksFactory extends Factory
         return [
             'stock_name' => fake()->randomElement($this->stocksName),
             'purchase_cost' => fake()->randomFloat(2, 100, 500),
-            'number_stocks' => fake()->numberBetween(1, 20)
+            'number_stocks' => fake()->numberBetween(1, 20),
+            'current_value' => fake()->randomFloat(2, 5, 20)
         ];
     }
 }
