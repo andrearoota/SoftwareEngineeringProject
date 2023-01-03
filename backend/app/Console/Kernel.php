@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Http\Controllers\Stocks\StocksSchedule;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -15,7 +16,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        /**
+         * Update current value
+         */
+        $schedule->call(new StocksSchedule)
+            //->daily() // Run the task every day at midnight
+            ->everyMinute()
+            ->timezone('Europe/Rome');
     }
 
     /**
@@ -25,7 +32,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }
