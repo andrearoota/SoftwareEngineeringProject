@@ -18,7 +18,7 @@ class UserAdmin extends UserAbstract
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        parent::__construct();
         $this->user = Auth::user();
     }
 
@@ -32,6 +32,33 @@ class UserAdmin extends UserAbstract
         return response()->json([
             'status' => 'success',
             'users' => ModelsUser::all()->loadMissing(['stocks']),
+        ]);
+    }
+
+    /**
+     * Get all users without approval.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function getUsersWithoutApproval(): \Illuminate\Http\JsonResponse
+    {
+        return response()->json([
+            'status' => 'success',
+            'users' => ModelsUser::all()->where('approved_by_administrator', false),
+        ]);
+    }
+
+    /**
+     * Update "approved_by_administrator" by user id.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function updateApprovedByAdministrator(Request $request): \Illuminate\Http\JsonResponse
+    {
+        return response()->json([
+            'status' => 'success',
+            'users' => ModelsUser::all()->where('approved_by_administrator', false),
         ]);
     }
 }

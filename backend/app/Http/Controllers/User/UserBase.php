@@ -17,7 +17,7 @@ class UserBase extends UserAbstract
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        parent::__construct();
         $this->user = Auth::user();
     }
 
