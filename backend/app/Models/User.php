@@ -53,7 +53,8 @@ class User extends Authenticatable implements JWTSubject
         'codice_fiscale',
         'email',
         'password',
-        'wallet'
+        'wallet',
+        'is_admin'
     ];
 
     /**
@@ -75,7 +76,8 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
         'birthdate' => 'datetime',
         'approved_by_administrator' => 'boolean',
-        'wallet' => 'float'
+        'wallet' => 'float',
+        'is_admin' => 'boolean'
     ];
 
     /**
@@ -85,7 +87,8 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $attributes = [
         'approved_by_administrator' => false,
-        'wallet' => 0
+        'wallet' => 0,
+        'is_admin' => false
     ];
 
     /**
@@ -93,7 +96,7 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var bool
      */
-    public $timestamps = false;
+    public $timestamps = true;
 
     /**
      * One To Many relationship.

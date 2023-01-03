@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             'codice_fiscale' => 'LLLFFF98C26A794F',
             'email' => 'test@test.com',
             'approved_by_administrator' => true,
+            'is_admin' => true,
         ]);
     }
 }
