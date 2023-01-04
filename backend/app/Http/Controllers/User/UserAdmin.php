@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Hash;
 class UserAdmin extends UserAbstract
 {
 
+    /**
+     * The user model.
+     *
+     * @var App\Models\User
+     */
     private $user;
     /**
      * We establish this function in our controller class so that we can use the auth:api middleware
@@ -25,9 +30,10 @@ class UserAdmin extends UserAbstract
     /**
      * Get all stocks.
      *
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function getStocks(): \Illuminate\Http\JsonResponse
+    protected function getStocks(Request $request): \Illuminate\Http\JsonResponse
     {
         return response()->json([
             'status' => 'success',

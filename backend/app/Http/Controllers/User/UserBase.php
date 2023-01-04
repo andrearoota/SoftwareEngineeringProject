@@ -11,7 +11,13 @@ use Illuminate\Support\Facades\Hash;
 
 class UserBase extends UserAbstract
 {
+    /**
+     * The user model.
+     *
+     * @var App\Models\User
+     */
     private $user;
+    
     /**
      * We establish this function in our controller class so that we can use the auth:api middleware
      * within it to block unauthenticated access to certain methods within the controller
@@ -25,6 +31,7 @@ class UserBase extends UserAbstract
     /**
      * Get stocks.
      *
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
     protected function getStocks(Request $request): \Illuminate\Http\JsonResponse
@@ -49,10 +56,14 @@ class UserBase extends UserAbstract
     protected function increaseWallet(Request $request): \Illuminate\Http\JsonResponse
     {
         $request->validate([
-            'increase' => 'required|decimal:1,2',
+            'increase' => 'required|numeric', // "decimal" don't work
         ]);
 
-        $this->user->wallet = $request->float('increase');
+        if ($request->user_id != $this->user->id) { // Dovremmo implementare le policy
+            throw new AuthorizationException('non autorizzato');
+        }
+
+        $this->user->wallet += $request->float('increase');
         $this->user->save();
 
         return response()->json([

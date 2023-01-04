@@ -23,9 +23,10 @@ abstract class UserAbstract extends Controller implements UserAuthInterface
     /**
      * Get stocks, if admin get all stocks.
      *
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    abstract protected function getStocks(): \Illuminate\Http\JsonResponse;
+    abstract protected function getStocks(Request $request): \Illuminate\Http\JsonResponse;
 
     /**
      * This method authenticates a user with their email and password.
