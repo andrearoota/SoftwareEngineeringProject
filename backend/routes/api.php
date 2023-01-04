@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\User\UserAuth;
+use App\Http\Controllers\User\UserAdmin;
+use App\Http\Controllers\User\UserBase;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,27 @@ use Illuminate\Support\Facades\Route;
 /**
  * API to handle the core logic of the authentication process.
  */
-Route::controller(UserAuth::class)->group(function () {
-    Route::post('login', 'login');
+Route::controller(UserBase::class)->prefix('auth')->group(function () {
+    Route::post('login', 'login')->name('login');
     Route::post('register', 'register');
     Route::post('logout', 'logout');
     Route::post('refresh', 'refresh');
+    Route::get('stocks', 'getStocks');
+});
+
+/**
+ * API to handle stocks.
+ */
+Route::controller(UserBase::class)->prefix('stocks')->group(function () {
+    Route::get('', 'getStocks');
+});
+
+/**
+ * Admin API.
+ */
+Route::controller(UserAdmin::class)->prefix('admin')->middleware('onlyAdmin')->group(function () {
+    Route::get('stocks', 'getStocks');
+    Route::get('users', 'getUsers');
+    Route::put('users/{user_id}', 'updateApprovedByAdministrator')
+        ->whereNumber('user_id');
 });
