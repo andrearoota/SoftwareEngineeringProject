@@ -34,8 +34,11 @@ Route::controller(UserBase::class)->prefix('stocks')->group(function () {
 });
 
 /**
- * API to handle stocks.
+ * Admin API.
  */
-Route::controller(UserAdmin::class)->prefix('admin/stocks')->middleware('onlyAdmin')->group(function () {
-    Route::get('', 'getStocks');
+Route::controller(UserAdmin::class)->prefix('admin')->middleware('onlyAdmin')->group(function () {
+    Route::get('stocks', 'getStocks');
+    Route::get('users', 'getUsers');
+    Route::put('users/{user_id}', 'updateApprovedByAdministrator')
+        ->whereNumber('user_id');
 });

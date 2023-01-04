@@ -36,15 +36,27 @@ class UserAdmin extends UserAbstract
     }
 
     /**
-     * Get all users without approval.
+     * Get all users.
      *
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function getUsersWithoutApproval(): \Illuminate\Http\JsonResponse
+    protected function getUsers(Request $request): \Illuminate\Http\JsonResponse
     {
+        $request->validate([
+            'approved' => 'in:true,false', // Only so it accepts string "true" / "false", using "boolean" only accepts "0" / "1"
+        ]);
+
+        if ($request->query('approved') === null) {
+            $response = ModelsUser::all();
+        } else {
+            $response = ModelsUser::all()
+                ->where('approved_by_administrator', $request->boolean('approved'));
+        }
+
         return response()->json([
             'status' => 'success',
-            'users' => ModelsUser::all()->where('approved_by_administrator', false),
+            'users' => $response,
         ]);
     }
 
@@ -56,9 +68,26 @@ class UserAdmin extends UserAbstract
      */
     protected function updateApprovedByAdministrator(Request $request): \Illuminate\Http\JsonResponse
     {
+        $request->validate([
+            'approved_by_administrator' => 'required|in:true,false',
+        ]);
+
+        $this->user = ModelsUser::where('id', $request->user_id)
+            ->first();
+
+        if ($this->user === null) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'This user_id not exist.',
+            ]);
+        }
+
+        $this->user->approved_by_administrator = $request->boolean('approved_by_administrator');
+        $this->user->save();
+
         return response()->json([
             'status' => 'success',
-            'users' => ModelsUser::all()->where('approved_by_administrator', false),
+            'user' => $this->user,
         ]);
     }
 }
