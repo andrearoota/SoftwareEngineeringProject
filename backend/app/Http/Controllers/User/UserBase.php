@@ -36,7 +36,7 @@ class UserBase extends UserAbstract
      */
     protected function getStocks(Request $request): \Illuminate\Http\JsonResponse
     {
-        if ($request->user_id !== $this->user->id) {
+        if ($request->user_id != $this->user->id) {
             throw new AuthorizationException('non autorizzato');
         }
 

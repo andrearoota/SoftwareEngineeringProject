@@ -23,7 +23,6 @@ Route::controller(UserBase::class)->prefix('auth')->group(function () {
     Route::post('register', 'register');
     Route::post('logout', 'logout');
     Route::post('refresh', 'refresh');
-    Route::get('stocks', 'getStocks');
 });
 
 /**
@@ -43,6 +42,6 @@ Route::controller(UserBase::class)->group(function () {
 Route::controller(UserAdmin::class)->prefix('admin')->middleware('onlyAdmin')->group(function () {
     Route::get('stocks', 'getStocks');
     Route::get('users', 'getUsers');
-    Route::put('users/{user_id}', 'updateApprovedByAdministrator')
+    Route::patch('users/{user_id}', 'updateApprovedByAdministrator')
         ->whereNumber('user_id');
 });
