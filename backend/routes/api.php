@@ -29,9 +29,13 @@ Route::controller(UserBase::class)->prefix('auth')->group(function () {
 /**
  * API to handle stocks.
  */
-Route::controller(UserBase::class)->prefix('stocks')->group(function () {
-    Route::get('', 'getStocks');
+Route::controller(UserBase::class)->group(function () {
+    Route::get('users/{user_id}/stocks', 'getStocks')
+        ->whereNumber('user_id');
+    Route::patch('users/{user_id}/increase', 'increaseWallet')
+        ->whereNumber('user_id');
 });
+
 
 /**
  * Admin API.
