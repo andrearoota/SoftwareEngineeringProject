@@ -1,11 +1,23 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import LoginPage from './pages/Loginpage';
 import SigninPage from './pages/SigninPage';
 import AnalyticsPage from './pages/AnalyticsPage';
 import MoneyPage from './pages/MoneyPage';
 import NotificationsPage from './pages/NotificationsPage';
 import SettingsPage from './pages/SettingsPage';
+import Backdrop from './components/Backdrop';
+import MenuLaterale from './components/MenuLaterale';
+import LandingPage from './pages/LandingPage';
+
+// App
+// Il componente che viene renderizzato da index
+// Qua viene gestito tutto:
+// - si imposta il routing
+// - si definiscono le funzioni da passare alle pagine per la gestione dei vari eventi
+// - si gestisce lo stato della pagina
+// - si richiamano selettivamente i componenti da renderizzare
 import Backdrop from './components/Backdrop';
 import MenuLaterale from './components/MenuLaterale';
 import LandingPage from './pages/LandingPage';
