@@ -20,6 +20,24 @@
 
 .title {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 20px;
     color: rgb(160, 160, 160);
 }
+
+.icon {
+    font-size: 25px;
+    padding: 5px;
+    border-radius: 5px;
+    align-self: flex-end;
+  }
+
+  .percentage {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+
+  }
+
+  .positive{
+    color:green;
+  }

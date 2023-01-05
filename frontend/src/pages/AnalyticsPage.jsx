@@ -3,6 +3,7 @@ import "./AnalyticsPage.css";
 import Widget from "../components/Widget";
 import Chart from "../components/Chart";
 import Pie_Chart from "../components/Pie_Chart";
+import Card from "../components/Card";
 
 const assets=[
     {
@@ -43,14 +44,12 @@ class AnalyticsPage extends React.Component{
          
           <div className="home">
             <div className="homeContainer">
-           
-
               <div className="charts">
-                <Chart title="Investment growth" aspect={2 / 1} />
-                <Pie_Chart />
+                <Pie_Chart data={assets} />
+                <Card />
               </div>
-              <div className="piechart">
-              
+              <div className="charts">
+              <Chart title="Investment growth" aspect={2 / 1} />
               </div>
               <div className="widgets">
                 {assets.map((item)=>(

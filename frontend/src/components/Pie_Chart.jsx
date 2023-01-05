@@ -1,23 +1,18 @@
-import React, { useCallback, useState } from "react";
-import { PieChart, Pie, Cell, Legend, Tooltip } from "recharts";
+import './Pie_Chart.css'
+import React from "react";
+import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer } from "recharts";
 
-const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 }
-];
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 
 
-export default function Pie_Chart() {
+export default function Pie_Chart({data}) {
   return (
-    <div className="chart">
+    <div className="piechart">
       <div className="title">Stocks</div>
 
-    
+      
     <PieChart width={600} height={400}>
       <Pie
         data={data}
@@ -25,9 +20,10 @@ export default function Pie_Chart() {
         cy={200}
         labelLine={true}
         label
-        outerRadius={150}
+        outerRadius={180}
         fill="#8884d8"
-        dataKey="value"
+        dataKey="amount"
+        nameKey="title"
       >
         {data.map((entry, index) => (
           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -35,6 +31,7 @@ export default function Pie_Chart() {
       </Pie>
       <Tooltip />
     </PieChart>
+  
     </div>
   );
 }
