@@ -3,11 +3,12 @@
 }
 
 .homeContainer {
-    flex: 6;
+    flex: 1;
+
 }
       
 .notifications {
-  display: flex;
+  
   padding: 10px;
   gap: 40px;
   height: fit-content;

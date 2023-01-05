@@ -2,29 +2,30 @@ import React from "react";
 import "./AnalyticsPage.css";
 import Widget from "../components/Widget";
 import Chart from "../components/Chart";
+import Pie_Chart from "../components/Pie_Chart";
 
 const assets=[
     {
-      amount: '39,354',
-      percentage: '-4',
+      amount: 39.354,
+      percentage: -4,
       title: 'Apple',
     
     },
     {
-      amount: '4,396',
-      percentage: '+23',
+      amount: 4.396,
+      percentage: +23,
       title: 'Tesla',
       
     },
     {
-      amount: '423,39',
-      percentage: '+38',
+      amount: 423.39,
+      percentage: +38,
       title: 'Microsoft',
       
     },
     {
-      amount: '39,354',
-      percentage: '-12',
+      amount: 39.354,
+      percentage: -12,
       title: 'Eni',
      
     },
@@ -46,6 +47,10 @@ class AnalyticsPage extends React.Component{
 
               <div className="charts">
                 <Chart title="Investment growth" aspect={2 / 1} />
+                <Pie_Chart />
+              </div>
+              <div className="piechart">
+              
               </div>
               <div className="widgets">
                 {assets.map((item)=>(

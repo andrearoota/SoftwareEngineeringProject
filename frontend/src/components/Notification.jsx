@@ -1,7 +1,9 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
-import { GiPayMoney } from "react-icons/gi";
+import { GiPayMoney, GiReceiveMoney } from "react-icons/gi";
 import './Notification.css'
+import Button from 'react-bootstrap/Button';
+
 function Notification({prop}) {
     let data;
     
@@ -10,20 +12,21 @@ function Notification({prop}) {
         case "buy":
             data = {
                 title: "BUY",
-                body: "Buying "
+                body: "Buying ",
+                icon: ( <GiPayMoney size={70} color="801C1C"/> )
             };
             break;
         case "sell":
             data = {
                 title: "SELL",
-                body: "Selling "
+                body: "Selling ",
+                icon: ( <GiReceiveMoney size={70} color="1C8028"/> )
             };
             break;
     }
   return (
     <div className='notification'>
-        <GiPayMoney size={70} /> 
-        
+        {data.icon} 
         <Card border="dark">
         <Card.Header>{data.title}</Card.Header>
         <Card.Body>
@@ -33,6 +36,11 @@ function Notification({prop}) {
           </Card.Text>
         </Card.Body>
         </Card>
+        <div className="button">
+        <Button variant="outline-primary">{data.title}</Button>{' '}
+         <Button variant="outline-secondary">Ignore</Button>{' '}
+        </div>
+    
         
     </div>
   )
