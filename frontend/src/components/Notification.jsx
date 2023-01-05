@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from 'react-bootstrap/Card'
+
 import { GiPayMoney, GiReceiveMoney } from "react-icons/gi";
 import './Notification.css'
 import Button from 'react-bootstrap/Button';
@@ -25,17 +25,21 @@ function Notification({prop}) {
             break;
     }
   return (
+    
     <div className='notification'>
-        {data.icon} 
-        <Card border="dark">
-        <Card.Header>{data.title}</Card.Header>
-        <Card.Body>
-          <Card.Title>{prop.stock_name}</Card.Title>
-          <Card.Text>
-           {data.body} price per action is {prop.price}
-          </Card.Text>
-        </Card.Body>
-        </Card>
+      <div className='icon'> {data.icon}</div>
+
+      <div className='actiontext black'>
+        {data.title}
+      </div>
+      <div className='actiontext gray'>
+        {prop.stock_name}
+      </div>
+      <div className='desc'>
+      {data.body} price per action is {prop.price} €
+      </div>
+         
+       
         <div className="button">
         <Button variant="outline-primary">{data.title}</Button>{' '}
          <Button variant="outline-secondary">Ignore</Button>{' '}

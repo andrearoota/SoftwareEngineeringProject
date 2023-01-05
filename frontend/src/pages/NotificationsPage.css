@@ -4,6 +4,7 @@
 
 .homeContainer {
     flex: 1;
+  
 
 }
       
@@ -12,5 +13,8 @@
   padding: 10px;
   gap: 40px;
   height: fit-content;
+  width: 70%;
+  display: inline-block;
+  
 }
 
