@@ -24,6 +24,7 @@ class App extends React.Component {
     this.state={
       menuAperto: false,
       logged: false,
+      user: null,
     }
     this.gestoreLogin=this.gestoreLogin.bind(this);
     this.gestoreSignin=this.gestoreSignin.bind(this);
@@ -32,13 +33,24 @@ class App extends React.Component {
 
   //metodo logout: imposta lo stato su non loggato
   logout(){
-    fetch('${window.location.origin/api/logout',
-    {
+    var requestOptions = {
       method: 'POST',
-      headers: {'Authorisation': "Bearer TOKEN"},
-      body: null, //da sostituire
-    })
+      headers: {
+        "Accept" : "application/json",
+        "Authorization" : "Bearer" + this.state.user.authorization.token,
+      },
+      redirect: 'follow',
+    };
+    let resp;
+    do{
+      fetch("localhost:80/api/auth/logout", requestOptions)
+        .then(response => {resp=response.json()})
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    } while(resp.status === "success");
+
     this.setState({logged:false,});
+    alert(resp.message);
   }
 
   //metodo gestoreLogin: da passare alla pagina di login per gestire l'accesso
@@ -46,11 +58,24 @@ class App extends React.Component {
   //riceve come parametro un evento automaticamente generato dal submit
   async gestoreLogin(event) {
     event.preventDefault();
-    const log= new FormData(document.getElementById('login'));
     
-    const response=await fetch('${window.location.origin}/api/login', { method: 'POST', body: new FormData(document.getElementById('login')), } );
-    console.log(response);
-    this.setState({logged:true,});
+    var requestOptions = {
+      method: 'POST',
+      body: new FormData(document.getElementById('login')),
+      redirect: 'follow'
+    };
+    let resp;
+    fetch("localhost:80/api/auth/login", requestOptions)
+      .then(response => {resp=response.json()})
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+    
+    if(resp.status === "success") {
+      this.setState({logged:true, user: resp});
+    } else {
+      alert("Username o password errati");
+      this.setState({user: null});
+    }
   }
 
   //metodo gestoreLogin: da passare alla pagina di registrazione per gestire la medesima
@@ -58,14 +83,29 @@ class App extends React.Component {
   //riceve come parametro un evento automaticamente generato dal submit
   async gestoreSignin(event) {
     event.preventDefault();
+    
     const dati=new FormData(document.getElementById('sign-in'));
     if( dati.get('password') !== dati.get('password2') ) {
       return alert("Le password non corrispondono");
     } else {
-      const response= await fetch('${window.location.origin}/api/register', { method: 'POST', body: dati,})
-      console.log(response);
+      var requestOptions = {
+        method: 'POST',
+        headers: {"Accept": "application/json"},
+        body: dati,
+        redirect: 'follow'
+      };
+      let resp;
+      fetch("localhost:80/api/auth/register", requestOptions)
+        .then(response => {resp=response.json()})
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+      
+      if(resp.status === "success") {
+        alert("Registrazione effettuata con successo, prima che il tuo account sia attivo è necessaria l'approvazione di un amministratore");
+      } else {
+        alert("La registrazione non è andata a buon fine, ritenta");
+      }
     }
-    this.setState({logged: true,});
   }
 
   gestoreSoldi(event){
