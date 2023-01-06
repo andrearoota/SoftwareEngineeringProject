@@ -33,20 +33,22 @@ const assets = [
 ];
 
 //function
-async function get_stocks({ data }) {
+async function get_stocks(data) {
 
   var requestOptions = {
     method: 'GET',
     headers: {
       "Accept": "application/json",
-      "Authorization": "bearer" + data.authorization.token,
+      "Authorization": `${data.authorisation.type} ${data.authorisation.token}`,
     },
     redirect: 'follow'
   };
 
-  const resp = await fetch("http://localhost/api/users/" + data.user.id + "/stocks", requestOptions)
+  const resp = await fetch(`http://localhost/api/users/${data.user.id}/stocks`, requestOptions)
     .then(response => response.json())
     .catch(error => console.log('error', error))
+
+  return resp.user.stocks;
 }
 
 
@@ -55,8 +57,7 @@ async function get_stocks({ data }) {
 class AnalyticsPage extends React.Component {
   constructor(props) {
     super(props);
-    stocks = get_stocks(props.user)
-    
+    const stocks = get_stocks(props.user)
   }
 
   render() {
