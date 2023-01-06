@@ -33,7 +33,7 @@ const assets = [
 ];
 
 //function
-async function get_stocks({ data }) {
+async function get_stocks(data) {
 
   var requestOptions = {
     method: 'GET',
@@ -56,7 +56,7 @@ class AnalyticsPage extends React.Component {
   constructor(props) {
     super(props);
     stocks = get_stocks(props.user)
-    
+
   }
 
   render() {
