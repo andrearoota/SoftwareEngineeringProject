@@ -128,7 +128,7 @@ class App extends React.Component {
           <SigninPage onSignin={this.gestoreSignin} />} />
         <Route exact path='/app/analytics' element={
           <div>
-            <AnalyticsPage apriMenu={() => { this.setState({ menuAperto: true }); }} />
+            <AnalyticsPage user= {this.state.user} apriMenu={() => { this.setState({ menuAperto: true }); }} />
             {this.state.menuAperto ?
               <Backdrop onClick={() => {
                 this.setState({ menuAperto: false })
