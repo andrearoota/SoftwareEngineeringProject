@@ -13,14 +13,48 @@ class User extends Authenticatable implements JWTSubject
     use HasFactory, Notifiable;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id';
+
+    /**
+     * Indicates if the model's ID is auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = true;
+
+    /**
+     * The data type of the auto-incrementing ID.
+     *
+     * @var string
+     */
+    // protected $keyType = 'int'; only if not integer
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'gender',
+        'birthdate',
+        'codice_fiscale',
         'email',
         'password',
+        'wallet',
+        'is_admin'
     ];
 
     /**
@@ -40,7 +74,39 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'birthdate' => 'datetime',
+        'approved_by_administrator' => 'boolean',
+        'wallet' => 'float',
+        'is_admin' => 'boolean'
     ];
+
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'approved_by_administrator' => false,
+        'wallet' => 0,
+        'is_admin' => false
+    ];
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = true;
+
+    /**
+     * One To Many relationship.
+     * Get the stocks.
+     * 
+     */
+    public function stocks()
+    {
+        return $this->hasMany(Stocks::class);
+    }
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
