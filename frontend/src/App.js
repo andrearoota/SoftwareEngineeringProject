@@ -34,6 +34,17 @@ class App extends React.Component {
       logged: false,
       user: null,
     }
+
+    let user = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith('user='))
+      ?.split('=')[1];
+
+    if (user !== undefined) {
+      this.state.logged = true;
+      this.state.user = JSON.parse(user);
+    }
+
     this.gestoreLogin = this.gestoreLogin.bind(this);
     this.gestoreSignin = this.gestoreSignin.bind(this);
     this.logout = this.logout.bind(this);
@@ -77,6 +88,8 @@ class App extends React.Component {
       .catch(error => console.log('error', error));
 
     if (resp.status === "success") {
+      document.cookie = `user=${JSON.stringify(resp)}`;
+
       this.setState({ logged: true, user: resp });
     } else {
       alert("Username o password errati");
@@ -128,7 +141,7 @@ class App extends React.Component {
           <SigninPage onSignin={this.gestoreSignin} />} />
         <Route exact path='/app/analytics' element={
           <div>
-            <AnalyticsPage apriMenu={() => { this.setState({ menuAperto: true }); }} />
+            <AnalyticsPage user={this.state.user} apriMenu={() => { this.setState({ menuAperto: true }); }} />
             {this.state.menuAperto ?
               <Backdrop onClick={() => {
                 this.setState({ menuAperto: false })
