@@ -5,6 +5,12 @@ import Chart from "../components/Chart";
 import Pie_Chart from "../components/Pie_Chart";
 import Card from "../components/Card";
 
+// ANALYTICS PAGE
+//PIECHART that show how the money is allocated (which stocks)
+//CARD that shows how much money is invested, how much is still available, the current value
+//CHART that shows the current value of the wallet vs the initial value
+//WIDGETS that show just the trend of 4 of user stocks
+
 const assets = [
   {
     amount: 39.354,
@@ -32,7 +38,7 @@ const assets = [
   },
 ];
 
-//function
+//function that returns stocks of user currently logged
 async function get_stocks(data) {
 
   var requestOptions = {
@@ -48,7 +54,7 @@ async function get_stocks(data) {
     .then(response => response.json())
     .catch(error => console.log('error', error))
 
-  return resp.user.stocks;
+  return resp.user;
 }
 
 
@@ -57,7 +63,10 @@ async function get_stocks(data) {
 class AnalyticsPage extends React.Component {
   constructor(props) {
     super(props);
-    stocks = get_stocks(props.user)
+    let api_resp = get_stocks(props.user);
+    let wallet= api_resp.wallet;
+    let stocks=api_resp.stocks;
+
     
   }
 
@@ -70,14 +79,14 @@ class AnalyticsPage extends React.Component {
         <div className="home">
           <div className="homeContainer">
             <div className="charts">
-              <Pie_Chart data={assets} />
-              <Card />
+              <Pie_Chart prop={stocks} />
+              <Card prop={stocks} wallet={wallet}/>
             </div>
             <div className="charts">
-              <Chart title="Investment growth" aspect={2 / 1} />
+              <Chart title="Investment growth" aspect={2 / 1} prop={stocks} wallet={wallet}/>
             </div>
             <div className="widgets">
-              {assets.map((item) => (
+              {stocks.slice(0,4).map((item) => (
                 <Widget prop={item} />
               ))}
             </div>

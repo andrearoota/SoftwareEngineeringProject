@@ -3,6 +3,8 @@ import Notification from '../components/Notification';
 import "./NotificationsPage.css";
 
 
+
+
 const notifications=[
     { 
         type: "buy",

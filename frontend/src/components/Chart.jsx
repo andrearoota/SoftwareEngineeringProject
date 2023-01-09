@@ -9,17 +9,25 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { calculate_curr, calculate_invested } from './Card';
 
-const data = [
-    { name: "January", Total: 1000 },
-    { name: "February", Total: 1500 },
-    { name: "March", Total: 1200 },
-    { name: "April", Total: 1600 },
-    { name: "May", Total: 900 },
-    { name: "June", Total: 1700 },
+// CHART COMPONENT
+// input: stocks of logged user, wallet (available funds) of logged user, aspect ratio of chart and title
+// shows the increment of value of wallet from purchase to now
+
+const Chart = ({aspect, title, prop, wallet}) => {
+
+  
+  let current_value= calculate_curr(prop);
+  let invested_money= calculate_invested(prop);
+
+  const data = [
+    { name: "Purchase_costs", Total: invested_money+wallet},
+    { name: "Current_value", Total: current_value+wallet},
+    
   ];
 
-const Chart = ({aspect, title}) => {
+
   return (
     <div className="chart">
     <div className="title">{title}</div>
