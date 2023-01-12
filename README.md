@@ -14,7 +14,7 @@ Progetto di Ingegneria del Software del corso di laurea in Ingegneria Informatic
 ## Installazione
 1. Clona la repository inserendo nel terminale il seguente comando:
 ```sh
-git https://github.com/andrearoota/SoftwareEngineeringProject.git
+git clone https://github.com/andrearoota/SoftwareEngineeringProject.git
 ```
 2. Spostati all'interno della directory appena creata:
 ```sh
@@ -28,5 +28,5 @@ bash install_project.sh
 ## Avvio
 Per avviare il progetto, copia e incolla il seguente codice nel tuo terminale:
 ```sh
-cd ./backend && ./vendor/bin/sail up
+./backend/vendor/bin/sail -f ./backend/docker-compose.yml up
 ```
