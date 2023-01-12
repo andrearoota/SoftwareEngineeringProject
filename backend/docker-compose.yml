@@ -39,7 +39,7 @@ services:
             POSTGRES_USER: '${DB_USERNAME}'
         volumes:
             - 'sail-pgsql:/var/lib/pgsql'
-            - './vendor/laravel/sail/database/pgsql/create-testing-database.sh:/docker-entrypoint-initdb.d/10-create-testing-database.sh'
+            - './vendor/laravel/sail/database/pgsql/create-testing-database.sql:/docker-entrypoint-initdb.d/10-create-testing-database.sql'
         networks:
             - sail
         healthcheck:
