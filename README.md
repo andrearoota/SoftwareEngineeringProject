@@ -28,5 +28,5 @@ bash install_project.sh
 ## Avvio
 Per avviare il progetto, copia e incolla il seguente codice nel tuo terminale:
 ```sh
-cd ./backend && ./vendor/bin/sail up
+./backend/vendor/bin/sail -f ./backend/docker-compose.yml up
 ```
