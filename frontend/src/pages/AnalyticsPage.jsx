@@ -57,7 +57,7 @@ async function get_stocks(data) {
 class AnalyticsPage extends React.Component {
   constructor(props) {
     super(props);
-    stocks = get_stocks(props.user)
+    var stocks = get_stocks(props.user)
     
   }
 
