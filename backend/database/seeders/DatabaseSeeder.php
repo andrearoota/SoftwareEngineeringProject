@@ -24,9 +24,20 @@ class DatabaseSeeder extends Seeder
             'gender' => 'm',
             'birthdate' => '1998-03-26',
             'codice_fiscale' => 'LLLFFF98C26A794F',
-            'email' => 'test@test.com',
+            'email' => 'admin@admin.com',
             'approved_by_administrator' => true,
             'is_admin' => true,
+        ]);
+
+        \App\Models\User::factory()->create([
+            'first_name' => 'Nome',
+            'last_name' => 'Cognome',
+            'gender' => 'm',
+            'birthdate' => '1998-03-26',
+            'codice_fiscale' => 'LLLFFF98C26A794F',
+            'email' => 'user@user.com',
+            'approved_by_administrator' => true,
+            'is_admin' => false,
         ]);
     }
 }
