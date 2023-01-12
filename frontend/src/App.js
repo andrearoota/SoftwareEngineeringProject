@@ -1,12 +1,14 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { Navigate, Route, Routes } from 'react-router-dom';
 import LoginPage from './pages/Loginpage';
 import SigninPage from './pages/SigninPage';
 import AnalyticsPage from './pages/AnalyticsPage';
 import MoneyPage from './pages/MoneyPage';
 import NotificationsPage from './pages/NotificationsPage';
 import SettingsPage from './pages/SettingsPage';
+import LandingPage from './pages/LandingPage';
+import Backdrop from './components/Backdrop';
+import MenuLaterale from './components/MenuLaterale';
 
 // App
 // Il componente che viene renderizzato da index
@@ -137,7 +139,7 @@ class App extends React.Component {
                 this.setState({ menuAperto: false })
               }} />
               : null}
-            {this.state.menuAperto ? <MenuLaterale onClick={() => this.setState({ menuAperto: false })} /> : null}
+            {this.state.menuAperto ? <MenuLaterale exit={this.logout} onClick={() => this.setState({ menuAperto: false })} /> : null}
           </div>
         } />
         <Route exact path='/app/money' element={
@@ -148,7 +150,7 @@ class App extends React.Component {
                 this.setState({ menuAperto: false })
               }} />
               : null}
-            {this.state.menuAperto ? <MenuLaterale onClick={() => this.setState({ menuAperto: false })} /> : null}
+            {this.state.menuAperto ? <MenuLaterale exit={this.logout} onClick={() => this.setState({ menuAperto: false })} /> : null}
           </div>
         } />
         <Route exact path='/app/notifications' element={
@@ -159,7 +161,7 @@ class App extends React.Component {
                 this.setState({ menuAperto: false })
               }} />
               : null}
-            {this.state.menuAperto ? <MenuLaterale onClick={() => this.setState({ menuAperto: false })} /> : null}
+            {this.state.menuAperto ? <MenuLaterale exit={this.logout} onClick={() => this.setState({ menuAperto: false })} /> : null}
           </div>
         } />
         <Route exact path='/app/settings' element={
@@ -170,7 +172,7 @@ class App extends React.Component {
                 this.setState({ menuAperto: false })
               }} />
               : null}
-            {this.state.menuAperto ? <MenuLaterale onClick={() => this.setState({ menuAperto: false })} /> : null}
+            {this.state.menuAperto ? <MenuLaterale exit={this.logout} onClick={() => this.setState({ menuAperto: false })} /> : null}
           </div>
         } />
       </Routes>

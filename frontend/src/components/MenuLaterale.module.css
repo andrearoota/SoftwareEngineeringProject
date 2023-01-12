@@ -18,3 +18,8 @@
   top: 0;
   left: 0;
 }
+
+.logoutButton{
+  height: 100%;
+  padding-top: 180%;
+}
