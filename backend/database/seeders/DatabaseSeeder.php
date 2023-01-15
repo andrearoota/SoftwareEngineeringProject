@@ -29,15 +29,17 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true,
         ]);
 
-        \App\Models\User::factory()->create([
-            'first_name' => 'Nome',
-            'last_name' => 'Cognome',
-            'gender' => 'm',
-            'birthdate' => '1998-03-26',
-            'codice_fiscale' => 'LLLFFF98C26A794F',
-            'email' => 'user@user.com',
-            'approved_by_administrator' => true,
-            'is_admin' => false,
-        ]);
+        \App\Models\User::factory()
+            ->has(\App\Models\Stocks::factory()->count(15))
+            ->create([
+                'first_name' => 'Nome',
+                'last_name' => 'Cognome',
+                'gender' => 'm',
+                'birthdate' => '1998-03-26',
+                'codice_fiscale' => 'LLLFFF98C26A794F',
+                'email' => 'user@user.com',
+                'approved_by_administrator' => true,
+                'is_admin' => false,
+            ]);
     }
 }
