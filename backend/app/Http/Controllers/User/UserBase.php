@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
-use App\Models\User as ModelsUser;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class UserBase extends UserAbstract
 {
@@ -25,7 +22,13 @@ class UserBase extends UserAbstract
     public function __construct()
     {
         parent::__construct();
-        $this->user = Auth::user();
+        /**
+         * @link https://stackoverflow.com/questions/35160144/authuser-returns-null
+         */
+        $this->middleware(function ($request, $next) {
+            $this->user = Auth::user();
+            return $next($request);
+        });
     }
 
     /**
@@ -43,6 +46,7 @@ class UserBase extends UserAbstract
         $this->user->stocks; // Save stocks into model
         return response()->json([
             'status' => 'success',
+            'message' => 'Stocks retrieved successfully',
             'user' => $this->user,
         ]);
     }
@@ -68,6 +72,7 @@ class UserBase extends UserAbstract
 
         return response()->json([
             'status' => 'success',
+            'message' => 'Wallet updated successfully',
             'user' => $this->user,
         ]);
     }

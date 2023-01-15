@@ -93,6 +93,7 @@ class UserAdmin extends UserAbstract
 
         return response()->json([
             'status' => 'success',
+            'message' => 'User updated successfully',
             'user' => $this->user,
         ]);
     }

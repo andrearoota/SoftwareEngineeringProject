@@ -51,6 +51,7 @@ abstract class UserAbstract extends Controller implements UserAuthInterface
             if ($user->approved_by_administrator) {
                 return response()->json([
                     'status' => 'success',
+                    'message' => 'Successfully logged in',
                     'user' => $user,
                     'authorisation' => [
                         'token' => $token,
@@ -135,6 +136,7 @@ abstract class UserAbstract extends Controller implements UserAuthInterface
     {
         return response()->json([
             'status' => 'success',
+            'message' => 'Successfully refreshed',
             'user' => Auth::user(),
             'authorisation' => [
                 'token' => Auth::refresh(),
