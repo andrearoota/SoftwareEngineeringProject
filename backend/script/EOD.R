@@ -1,8 +1,9 @@
 buy_sell <- function(SMA_Short, SMA_Long, dataset) {
   d <- list()  
   last <- 14
+  #if neither a positive nor negative trend is found, than the system does nothing= 0
   for (s in symbols) {
-    #checking if in the last three day the stock value increased compared to the     
+    #checking if there is a positive trend
     if (SMA_Short[last,s] > SMA_Long[last,s]) {
       if (SMA_Short[last-1,s] < SMA_Long[last-1,s]) {
         # buy =1
@@ -10,6 +11,7 @@ buy_sell <- function(SMA_Short, SMA_Long, dataset) {
       } else {
         d[[s]] <- list(0, NA)
       }
+      #checking if there is a negative trend
     } else if (SMA_Short[last,s] < SMA_Long[last,s]) {
       if (SMA_Short[last-1,s] > SMA_Long[last-1,s]) {
         # sell =-1
