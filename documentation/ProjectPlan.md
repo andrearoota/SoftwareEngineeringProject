@@ -19,6 +19,7 @@ Il team è composto da quattro persone:
 2. Mazzoleni Camilla
 3. Rota Andrea
 4. Sorgiovanni Pier Francesco
+
 Il team è suddiviso tra chi si occupa di frontend (Colombo, Mazzoleni) e chi di backend (Rota, Sorgiovanni). Per ogni sotto-team è presente un reviewer (Colombo, Rota) che revisiona il codice della sua area di progetto.
 Il gruppo si incontra ogni sabato mattina in aula B-103 dell'Università degli Studi di Bergamo, mentre ogni sotto team si aggiorna quotidinamente attraverso video-call. Ogni giorno ci sarà un breve Daily Scrum.
 GitHub è lo strumento prescelto sia per la condivisione del codice, la gestione delle versioni e le richieste di modifica, sia per la gestione della documentazione.
