@@ -20,9 +20,9 @@ use Illuminate\Support\Facades\Route;
  */
 Route::controller(UserBase::class)->prefix('auth')->group(function () {
     Route::post('login', 'login')->name('login');
-    Route::post('register', 'register');
-    Route::post('logout', 'logout');
-    Route::post('refresh', 'refresh');
+    Route::post('register', 'register')->name('register');
+    Route::post('logout', 'logout')->name('logout');
+    Route::post('refresh', 'refresh')->name('refresh');
 });
 
 /**
@@ -30,9 +30,12 @@ Route::controller(UserBase::class)->prefix('auth')->group(function () {
  */
 Route::controller(UserBase::class)->group(function () {
     Route::get('users/{user_id}/stocks', 'getStocks')
-        ->whereNumber('user_id');
+        ->whereNumber('user_id')
+        ->name('getUserStocks');
+
     Route::patch('users/{user_id}/increase', 'increaseWallet')
-        ->whereNumber('user_id');
+        ->whereNumber('user_id')
+        ->name('patchWallet');
 });
 
 
@@ -40,8 +43,13 @@ Route::controller(UserBase::class)->group(function () {
  * Admin API.
  */
 Route::controller(UserAdmin::class)->prefix('admin')->middleware('onlyAdmin')->group(function () {
-    Route::get('stocks', 'getStocks');
-    Route::get('users', 'getUsers');
+    Route::get('stocks', 'getStocks')
+        ->name('getAdminAllStocks');
+
+    Route::get('users', 'getUsers')
+        ->name('getAdminAllUsers');
+
     Route::patch('users/{user_id}', 'updateApprovedByAdministrator')
-        ->whereNumber('user_id');
+        ->whereNumber('user_id')
+        ->name('patchApprovedByAdministrator');
 });
