@@ -1,0 +1,11 @@
+.item{
+    border-style: solid;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.casella{
+    width: 100%;
+    text-align: right;
+}

@@ -9,6 +9,7 @@ import SettingsPage from './pages/SettingsPage';
 import LandingPage from './pages/LandingPage';
 import Backdrop from './components/Backdrop';
 import MenuLaterale from './components/MenuLaterale';
+import PaginaApprovazioni from './pages/Approvazioni';
 
 // App
 // Il componente che viene renderizzato da index
@@ -125,6 +126,7 @@ class App extends React.Component {
   render() {
     return (
       <Routes>
+        <Route exact path='/approval' element={<PaginaApprovazioni/>} />
         <Route exact path='/' element={<LandingPage />} />
         <Route exact path='/login' element={
           this.state.logged ? <Navigate to='/app/analytics' replace /> : <LoginPage onLogin={this.gestoreLogin} onLogout={this.logout} />
