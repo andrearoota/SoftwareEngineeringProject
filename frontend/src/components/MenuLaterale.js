@@ -13,12 +13,17 @@ class MenuLaterale extends React.Component{
         super(props);
     }
     render(){
-        return <div className={classi.hamb}>
-            <Link to='/app/analytics' replace={true} onClick={this.props.onClick}>Analytics</Link><br />
-            <Link to='/app/money' replace={true} onClick={this.props.onClick}>Gestisci i tuoi soldi</Link><br />
-            <Link to='/app/notifications' replace={true} onClick={this.props.onClick}>Notifiche</Link><br />
-            <Link to='/app/settings' replace={true} onClick={this.props.onClick}>Impostazioni</Link>
-        </div>;
+        return (
+            <div>
+                <Link to='/app/analytics' replace={true} onClick={this.props.onClick}>Analytics</Link><br />
+                <Link to='/app/money' replace={true} onClick={this.props.onClick}>Gestisci i tuoi soldi</Link><br />
+                <Link to='/app/notifications' replace={true} onClick={this.props.onClick}>Notifiche</Link><br />
+                <Link to='/app/settings' replace={true} onClick={this.props.onClick}>Impostazioni</Link><br />
+                <div className={classi.logoutButton}>
+                    <Link to='/' replace={true} onClick={this.props.exit}>Log</Link>
+                </div>
+            </div>
+        );
     }
 }
 

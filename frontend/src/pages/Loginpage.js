@@ -12,10 +12,10 @@ class LoginPage extends React.Component {
         super(props);
     }
 
-    componentDidMount(){
+    /* componentDidMount(){
         this.props.onLogout();
         console.log('logout');
-    }
+    } */
 
     render(){
         return(
