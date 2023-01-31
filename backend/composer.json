@@ -19,6 +19,8 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
+        "phploc/phploc": "^7.0",
+        "phpmetrics/phpmetrics": "^2.8",
         "phpunit/phpunit": "^9.5.10",
         "spatie/laravel-ignition": "^1.0"
     },

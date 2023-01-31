@@ -12,3 +12,6 @@
 Il gruppo si è riunito telematicamente e ha approvato l'attuale versione del project plan; @andrearoota si è occupato di creare l'issue taggando il prof.re Gargantini.
 
 Dopodichè è stato deciso lo sprint backlog che si può trovare nella sezione `Projects`.
+
+# #01 Sprint Review
+Lo sprint è stato portato a termine con successo, tutte le funzionalità dello sprint backlog sono state implementate e testate proficuamente.
