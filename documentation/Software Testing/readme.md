@@ -48,7 +48,62 @@ Si occupa di testare le API esposte utilizzabili dagli utenti autenticati di liv
 - test_increase_or_decrease_wallet
 
 ### 03. AdminApiTest
-Si occupa di testare le API esposte utilizzabili dagli utenti autenticati di livello **admin**, è composto da due sotto test:
+Si occupa di testare le API esposte utilizzabili dagli utenti autenticati di livello **admin**, è composto da tre sotto test:
 - test_get_users
 - test_get_stocks
 - test_approved_by_administrator
+
+## Coverage
+Di seguito il report generato da PHPUnit.
+```
+PASS  Tests\Unit\ExampleTest
+✓ that true is true
+
+PASS  Tests\Feature\AdminApiTest
+✓ get users
+✓ get stocks
+✓ approved by administrator
+
+PASS  Tests\Feature\AuthTest
+✓ registration
+✓ login
+✓ logout
+
+PASS  Tests\Feature\UserApiTest
+✓ get stocks
+✓ increase or decrease wallet
+
+Tests:  9 passed
+Time   2.40s
+
+Console/Kernel 22..25, 23 ............................................. 33.3 %
+Exceptions/Handler  .................................................. 100.0 %
+Http/Controllers/Controller  ......................................... 100.0 %
+Http/Controllers/Stocks/StocksController ............................... 0.0 %
+Http/Controllers/Stocks/StocksSchedule ................................. 0.0 %
+Http/Controllers/Stocks/StocksScheduleInterface  ..................... 100.0 %
+Http/Controllers/User/UserAbstract 64..67, 137..143, 66, 141..145 ..... 79.7 %
+Http/Controllers/User/UserAdmin 59..60, 85..86, 87..88 ................ 82.4 %
+Http/Controllers/User/UserAuthInterface  ............................. 100.0 %
+Http/Controllers/User/UserBase 43, 67 ................................. 92.0 %
+Http/Kernel  ......................................................... 100.0 %
+Http/Middleware/Authenticate 18 ....................................... 50.0 %
+Http/Middleware/EncryptCookies  ...................................... 100.0 %
+Http/Middleware/PreventRequestsDuringMaintenance  .................... 100.0 %
+Http/Middleware/RedirectIfAuthenticated ................................ 0.0 %
+Http/Middleware/TrimStrings  ......................................... 100.0 %
+Http/Middleware/TrustHosts ............................................. 0.0 %
+Http/Middleware/TrustProxies  ........................................ 100.0 %
+Http/Middleware/ValidateSignature  ................................... 100.0 %
+Http/Middleware/VerifyCsrfToken  ..................................... 100.0 %
+Http/Middleware/onlyAdminAPI  ........................................ 100.0 %
+Models/Stocks  ....................................................... 100.0 %
+Models/User  ......................................................... 100.0 %
+Providers/AppServiceProvider  ........................................ 100.0 %
+Providers/AuthServiceProvider  ....................................... 100.0 %
+Providers/BroadcastServiceProvider ..................................... 0.0 %
+Providers/EventServiceProvider  ...................................... 100.0 %
+Providers/RouteServiceProvider  ...................................... 100.0 %
+
+Total Coverage ........................................................ 69.9 %
+```
