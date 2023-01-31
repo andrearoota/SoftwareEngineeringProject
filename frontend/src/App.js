@@ -88,6 +88,9 @@ class App extends React.Component {
       alert("Username o password errati");
       this.setState({ user: null });
     }
+
+    //for testing purposes
+    //this.setState({logged:true});
   }
 
   //metodo gestoreLogin: da passare alla pagina di registrazione per gestire la medesima
