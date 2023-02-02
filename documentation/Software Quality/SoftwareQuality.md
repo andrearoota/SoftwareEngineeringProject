@@ -1,4 +1,4 @@
-# Quality of Software
+# Quality of Software @CamillaMazzoleni
 ## Introduzione
 Questo file si occupa del descrivere i requisiti di qualità del progetto. In particolare il team si è impegnato per rispettare i requisiti di qualità tassonomici di McCall. In particolare vengono usati le seguenti linee guida per la produzione, revisione e transizione del codice
 
