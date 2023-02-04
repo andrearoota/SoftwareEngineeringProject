@@ -1,6 +1,7 @@
 import React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import "./SettingsPage.css";
+import "../index.css";
 
 const options =[
   {

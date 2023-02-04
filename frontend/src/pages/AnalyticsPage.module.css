@@ -1,0 +1,24 @@
+.home {
+    display: flex;
+}
+
+.homeContainer {
+    flex: 6;
+}
+      
+
+.widgets,
+.charts {
+  display: flex;
+  padding: 10px;
+  gap: 40px;
+  height: fit-content;
+}
+
+
+
+
+.menu{
+    align-items: right;
+    height: 70%;
+}

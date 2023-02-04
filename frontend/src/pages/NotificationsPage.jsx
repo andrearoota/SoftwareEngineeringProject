@@ -1,6 +1,7 @@
 import React from 'react';
 import Notification from '../components/Notification';
-import "./NotificationsPage.css";
+import classes from "./NotificationsPage.module.css";
+import "../index.css";
 
 
 const notifications=[
@@ -43,23 +44,20 @@ class NotificationsPage extends React.Component {
 
     render(){
         return (
-        <div>
-            <button onClick={this.props.apriMenu} className='menu'><i className='fas fa-bars'/></button>
-            
-            <h1>Notifications</h1>
-            <div className='home'>
-            <div className='homeContainer'> 
-            
-                {notifications.map((item)=>(
-                    <div className='notifications'>
-                  <Notification prop={item}/>
-                  
-                  </div>
-                ))}
-              
-              </div>
-              </div>
-        </div>);
+            <div>
+                <button onClick={this.props.apriMenu} className="menu"><i className='fas fa-bars'/></button>
+                <h1>Notifications</h1>
+                <div className={classes.home}>
+                    <div className={classes.homeContainer}> 
+                        { notifications.map((item)=>(
+                            <div className={classes.notifications}>
+                                <Notification item={item}/>
+                            </div>
+                        )) }
+                    </div>
+                </div>
+            </div>
+        );
     }
 }
 
