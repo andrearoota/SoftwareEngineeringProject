@@ -53,7 +53,7 @@ Il sistema non deve interfacciarsi con nessun sistema hardware
 ## Requisiti funzionali
 A tal proposito dividiamo i requisiti in base alla priorità, sulla base di due schemi
 - MOSCOW Model
-![Moscow](https://github.com/andrearoota/SoftwareEngineeringProject/blob/main/documentation/Engineering%20requirements/moscow.png)
+![Moscow](https://github.com/andrearoota/SoftwareEngineeringProject/blob/main/documentation/Requirements%20Engineering/moscow.png)
 
 
 - Kano Model
