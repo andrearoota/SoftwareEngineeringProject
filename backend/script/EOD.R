@@ -1,3 +1,16 @@
+# This package is required for Accessing APIS (HTTP or HTTPS URLS from Web)
+library(httr)
+#This package exposes some additional functions to convert json/text to data frame
+library(rlist)
+#This package exposes some additional functions to convert json/text to data frame
+library(jsonlite)
+#This library is used to manipulate data
+library(dplyr)
+#this library is used to create SMA model
+library(smooth)
+
+
+
 buy_sell <- function(SMA_Short, SMA_Long, dataset) {
   d <- list()  
   last <- 14
@@ -25,16 +38,6 @@ buy_sell <- function(SMA_Short, SMA_Long, dataset) {
   }
   return(d)
 }
-# This package is required for Accessing APIS (HTTP or HTTPS URLS from Web)
-library(httr)
-#This package exposes some additional functions to convert json/text to data frame
-library(rlist)
-#This package exposes some additional functions to convert json/text to data frame
-library(jsonlite)
-#This library is used to manipulate data
-library(dplyr)
-#this library is used to create SMA model
-library(smooth)
 
 #initializing  stock label
 symbols= c('AAPL','ABBV','ABT','ACN','AGN','AIG','ALL','AMGN','AMZN','AXP','BA','BAC','BIIB','BK','BLK','BMY','C','CAT','CELG','CL','CMCSA','COF','COP','COST','CSCO','CVS','CVX','DD','DHR','DIS','DOW','DUK','EMC','EMR','EXC','F','FB','FDX','FOX','FOXA','GD','GE','GILD','GM','GOOG','GOOGL','GS','HAL','HD','HON','IBM','INTC','JNJ','JPM','KMI','KO','LLY','LMT','LOW','MA','MCD','MDLZ','MDT','MET','MMM','MO','MON','MRK','MS','MSFT','NEE','NKE','ORCL','OXY','PEP','PFE','PG','PM','PYPL','QCOM','RTN','SBUX','SLB','SO','SPG','T','TGT','TXN','UNH','UNP','UPS','USB','USD','UTX','V','VZ','WBA','WFC'
@@ -45,6 +48,9 @@ symbols= c('AAPL','ABBV','ABT','ACN','AGN','AIG','ALL','AMGN','AMZN','AXP','BA',
 dati_totali<-data.frame(1:14)
 SMA_3<-data.frame(1:14)
 SMA_7<-data.frame(1:14)
+
+#getting user's Stock
+userStock<- GET('http://localhost/api/admin/stocks',add_headers(Authorization='Bearer TOKEN'))
 
 #API request to get all the EOD data for each stock
 for(s in symbols){
@@ -57,6 +63,7 @@ for(s in symbols){
   dati_totali[s]=rev(dati[["data"]][["eod"]][["adj_close"]])
 
   #sma model with two different time window for each stock
+  #more information: "https://en.wikipedia.org/wiki/Moving_average"
   SMA_3[s]<-sma(ts(dati_totali[s]),order = 3,silent = FALSE)$fitted
   SMA_7[s]<-sma(ts(dati_totali[s]),order = 7,silent = FALSE)$fitted
 }
