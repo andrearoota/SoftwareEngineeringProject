@@ -12,11 +12,6 @@ class LoginPage extends React.Component {
         super(props);
     }
 
-    /* componentDidMount(){
-        this.props.onLogout();
-        console.log('logout');
-    } */
-
     render(){
         return(
             <div>

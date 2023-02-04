@@ -1,14 +1,12 @@
-import React from 'react'
-
+import React from 'react';
 import { GiPayMoney, GiReceiveMoney } from "react-icons/gi";
-import './Notification.css'
+import classes from'./Notification.module.css'
 import Button from 'react-bootstrap/Button';
 
-function Notification({prop}) {
+class Notification extends React.Component {
+  render() {
     let data;
-    
-
-    switch(prop.type){
+    switch(this.props.item.type){
         case "buy":
             data = {
                 title: "BUY",
@@ -24,30 +22,31 @@ function Notification({prop}) {
             };
             break;
     }
-  return (
-    
-    <div className='notification'>
-      <div className='icon'> {data.icon}</div>
+    return (
+      
+      <div className={classes.notification}>
+        <div className={classes.icon}> {data.icon}</div>
 
-      <div className='actiontext black'>
-        {data.title}
-      </div>
-      <div className='actiontext gray'>
-        {prop.stock_name}
-      </div>
-      <div className='desc'>
-      {data.body} price per action is {prop.price} €
-      </div>
-         
-       
-        <div className="button">
-        <Button variant="outline-primary">{data.title}</Button>{' '}
-         <Button variant="outline-secondary">Ignore</Button>{' '}
+        <div className={classes.actiontextblack}>
+          {data.title}
         </div>
-    
+        <div className={classes.actiontextgray}>
+          {this.props.item.stock_name}
+        </div>
+        <div className={classes.desc}>
+        {data.body} price per action is {this.props.item.price} €
+        </div>
+          
         
-    </div>
-  )
+          <div className={classes.button}>
+          <Button variant="outline-primary">{data.title}</Button>{' '}
+          <Button variant="outline-secondary">Ignore</Button>{' '}
+          </div>
+      
+          
+      </div>
+    );
+  }
 }
 
 export default Notification;

@@ -1,5 +1,6 @@
 import React from "react";
-import "./AnalyticsPage.css";
+import classes from "./AnalyticsPage.module.css";
+import "../index.css";
 import Widget from "../components/Widget";
 import Chart from "../components/Chart";
 import Pie_Chart from "../components/Pie_Chart";
@@ -32,53 +33,49 @@ const assets = [
   },
 ];
 
-//function
-async function get_stocks(data) {
-
-  var requestOptions = {
-    method: 'GET',
-    headers: {
-      "Accept": "application/json",
-      "Authorization": `${data.authorisation.type} ${data.authorisation.token}`,
-    },
-    redirect: 'follow'
-  };
-
-  const resp = await fetch(`http://localhost/api/users/${data.user.id}/stocks`, requestOptions)
-    .then(response => response.json())
-    .catch(error => console.log('error', error))
-
-  return resp.user.stocks;
-}
-
-
-
-
 class AnalyticsPage extends React.Component {
   constructor(props) {
     super(props);
-    var stocks = get_stocks(props.user)
+    var stocks = this.get_stocks(props.user)
     
+  }
+
+  async get_stocks(data) {
+
+    var requestOptions = {
+      method: 'GET',
+      headers: {
+        "Accept": "application/json",
+        "Authorization": `${data.authorisation.type} ${data.authorisation.token}`,
+      },
+      redirect: 'follow'
+    };
+  
+    const resp = await fetch(`http://localhost/api/users/${data.user.id}/stocks`, requestOptions)
+      .then(response => response.json())
+      .catch(error => console.log('error', error))
+  
+    return resp.user.stocks;
   }
 
   render() {
     return (
-      <div className="menu">
+      <div className={classes.menu}>
         <button onClick={this.props.apriMenu} className='menu'><i className='fas fa-bars' /></button>
         <h1> Analytics </h1>
 
-        <div className="home">
-          <div className="homeContainer">
-            <div className="charts">
+        <div className={classes.home}>
+          <div className={classes.homeContainer}>
+            <div className={classes.charts}>
               <Pie_Chart data={assets} />
               <Card />
             </div>
-            <div className="charts">
+            <div className={classes.charts}>
               <Chart title="Investment growth" aspect={2 / 1} />
             </div>
-            <div className="widgets">
+            <div className={classes.widgets}>
               {assets.map((item) => (
-                <Widget prop={item} />
+                <Widget item={item} />
               ))}
             </div>
           </div>

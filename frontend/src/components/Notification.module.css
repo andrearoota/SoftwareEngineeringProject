@@ -1,0 +1,43 @@
+
+.notification{
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    border-radius: 10px;
+    height: fit-content;
+    align-self: center;
+    
+}
+.button{
+    display: flex;
+    flex: 12;
+    padding: 30px;
+
+}
+.icon {
+    font-size: 25px;
+    padding: 50px;
+    border-radius: 5px;
+    align-self: flex-end;
+  }
+
+  .actiontextblack {
+    font-size: 30px;
+    color: black;
+    padding: 50px;
+  }
+
+  .actiontextgray {
+    font-size: 30px;
+    color: gray;
+    padding: 50px;
+  }
+
+  .desc {
+    font-weight: 300;
+    font-size: 20px;
+    color: gray;
+    text-align: center;
+  }

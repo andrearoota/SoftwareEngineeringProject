@@ -22,6 +22,7 @@ const datiprova=[
     }
 ]
 
+// la pagina approvazioni non è raggiunta da nessun pulsante/link né contiene pulsanti/link ad altre pagine in quanto destinata solo all'admin
 export default class PaginaApprovazioni extends React.Component {
     approva(item){
         console.log(item);
