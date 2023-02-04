@@ -1,9 +1,9 @@
-#Software Life Cycle @pierGit7
+# Software Life Cycle @pierGit7
 
-##Come approccio di progettazione software per lo sviluppo del sistema ci siamo attenuti alla model-driven architecture (MDA), o architettura guidata dal modello.
+## Come approccio di progettazione software per lo sviluppo del sistema ci siamo attenuti alla model-driven architecture (MDA), o architettura guidata dal modello.
 Per il processo di sviluppo il team ha scelto un approccio di tipo Agile, per avere una risposta più veloce ai cambiameti e per non essere legati ad un piano da seguire.
 
-- Ci concentriamo maggiormente sulla riuscita dello sprint e sulla programmazzione piuttosto che sulla documentazione.Alla fine di ogni sprint  tutte le nuove funzionalità sono funzionanti e possono essere implementate.
+- Ci concentriamo maggiormente sulla riuscita dello sprint e sulla programmazione piuttosto che sulla documentazione. Alla fine di ogni sprint  tutte le nuove funzionalità sono funzionanti e possono essere implementate.
 - Utilizziamo la tecnica del pair programming: per lo sviluppo dei lati front-end e back-end, gli sviluppatori hanno l’opportunità di lavorare in coppia: uno dei due scrive il codice mentre l’altro funge da supervisore e revisore; i due possono cambiarsi di ruolo.
 - Durante i daily scrum(settimanali) ci riuniamo per esprire i nostri dubbi o possibili conflitti ed errori trovati durante l'implementazione di spefiche .
 - Lo scrum master cambia per ogni sprint. Chiunque svolga il ruolo di scrum master deve comportarsi come un 'coach' ,deve aiutare e motivare il team.
