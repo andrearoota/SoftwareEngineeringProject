@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class UserAdmin extends UserAbstract
+class UserAdmin extends UserBase
 {
 
     /**
