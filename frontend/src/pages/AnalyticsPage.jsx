@@ -34,7 +34,7 @@ async function get_stocks(data) {
 class AnalyticsPage extends React.Component {
   constructor(props) {
     super(props);
-    let api_resp = this.get_stocks(props.user);
+    let api_resp = get_stocks(props.user);
     this.wallet_data= api_resp.wallet;
     this.stocks=api_resp.stocks;
     
