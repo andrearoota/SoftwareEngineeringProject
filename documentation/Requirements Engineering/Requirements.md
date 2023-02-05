@@ -2,12 +2,6 @@
 L' ingegneria dei requisiti è una fase importante di un progetto software.
 L' obbiettivo che ci siamo posti è stato quello di ottenere una descrizione completa del problema da risolvere. Il riultato di questa fase è la specifica dei requisiti, in cui sono descritti i requisiti principali della piattaforma, ordinati in base alla priorità.
 
-mindmap
-  root((Ingegneria dei requisiti))
-    id[Specification]
-    Elicitation
-    Negotiation
-    Validation
 
 
 
@@ -45,7 +39,7 @@ Il sistema software è risvolto ad una utenza con discreta conoscenza nell' ambi
 ### Vincoli gernerali
 
 ## 3. Requisiti specifici
-### Interfaccia utente+
+### Interfaccia utente
 Il sistema software deve essere dotato di un' interfaccia intuitiva, semplice e chiara.
 ### Interfaccia hardware
 Il sistema non deve interfacciarsi con nessun sistema hardware
@@ -53,7 +47,8 @@ Il sistema non deve interfacciarsi con nessun sistema hardware
 ## Requisiti funzionali
 A tal proposito dividiamo i requisiti in base alla priorità, sulla base di due schemi
 - MOSCOW Model
-![Moscow](https://github.com/andrearoota/SoftwareEngineeringProject/blob/main/documentation/Engineering%20requirements/moscow.png)
+![Alt text](moscow.jpg)
+
 
 
 - Kano Model
@@ -78,3 +73,6 @@ A tal proposito dividiamo i requisiti in base alla priorità, sulla base di due 
     - Won't have
         - generazione di codice OTP per l' associazione con il conto corrente
 
+
+
+[def]: https://github.com/andrearoota/SoftwareEngineeringProject/blob/main/documentation/Engineering%20requirements/moscow.jpg
