@@ -9,22 +9,20 @@ import React from "react";
 
 
 //functin to calculate the current value of the wallet of the user
-export function calculate_curr(stock){
-  let sum=0;
-  for (let s in stock)
-  {
-    sum+= s.current_value*s.number_stocks;
+export function calculate_curr(stock) {
+  let sum = 0;
+  for (let s in stock) {
+    sum += s.current_value * s.number_stocks;
   }
   return sum;
 }
 
 
 //functin to calculate the invested money
-export function calculate_invested(stock){
-  let sum=0;
-  for (let s in stock)
-  {
-    sum+= s.purchase_cost*s.number_stocks;
+export function calculate_invested(stock) {
+  let sum = 0;
+  for (let s in stock) {
+    sum += s.purchase_cost * s.number_stocks;
   }
   return sum;
 
@@ -35,13 +33,12 @@ export function calculate_invested(stock){
 class Card extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       current_value: calculate_curr(props.prop),
       invested_money: calculate_invested(props.prop),
-      tot_money: calculate_invested(props.prop)+props.wallet,
-
+      tot_money: calculate_invested(props.prop) + props.wallet,
     }
-    
+
   }
   render() {
     return (
@@ -51,9 +48,9 @@ class Card extends React.Component {
         </div>
         <div className={classes.bottom}>
           <div style={{ width: 200, height: 200 }}>
-          <CircularProgressbar value={this.state.invested_money/this.state.tot_money} />
+            <CircularProgressbar value={this.state.invested_money / this.state.tot_money} />
           </div>
-          
+
           <p className={classes.title}>Total money </p>
           <p className={classes.amount}>{this.state.tot_money}€</p>
           <p className={classes.desc}>
