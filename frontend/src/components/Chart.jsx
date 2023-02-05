@@ -20,7 +20,7 @@ class Chart extends React.Component {
     super(props);
     let current_value= calculate_curr(props.prop);
     let invested_money= calculate_invested(props.prop);
-    prop_data = [
+    const prop_data = [
       { name: "Purchase_costs", Total: invested_money+ props.wallet},
       { name: "Current_value", Total: current_value+ props.wallet},
       

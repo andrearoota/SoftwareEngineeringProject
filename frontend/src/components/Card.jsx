@@ -38,7 +38,7 @@ class Card extends React.Component {
     this.state={
       current_value: calculate_curr(props.prop),
       invested_money: calculate_invested(props.prop),
-      tot_money: invested_money+props.wallet,
+      tot_money: calculate_invested(props.prop)+props.wallet,
 
     }
     
