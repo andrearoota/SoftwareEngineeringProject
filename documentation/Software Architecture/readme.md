@@ -11,6 +11,8 @@ Punto di vista del client-server e decomposizione
 
 ![img](./asset/client-server-diagram.png)
 
+## Deployment Viewpoint
+![img](./asset/Deploy-diagram.png)
 
 
 ## Sicurezza
