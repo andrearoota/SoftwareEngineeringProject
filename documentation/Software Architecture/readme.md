@@ -6,6 +6,13 @@ Il software da noi progettato è basato su un'architettura client-server che uti
 
 L'idea era quella di creare un'architettura a servizi per gestire le varie richieste (autenticazione, calcoli statistici, dati utente, dati stocks, ecc.), ma attualmente risulta maggiormente monolitico in quanto gestito interamente da uno stesso server per questioni di semplicità; il progetto è comunque sviluppato con l'idea di una suddivisione futura in microservizi e tutto ciò rende basso l'accoppiamento tra i vari moduli.
 
+## Vista statica
+Punto di vista del client-server e decomposizione
+
+![img](./asset/client-server-diagram.png)
+
+
+
 ## Sicurezza
 Il client, per accedere agli endpoint protetti, deve essere in possesso di un [JSON Web Tokens](https://jwt.io/) fornitogli in fase di autenticazione, esso garantisce che l'utente è chi dice di essere e che abbia i permessi necessari, per maggiori informazioni rimandiamo al documento [RFC 7519](https://tools.ietf.org/html/rfc7519).
 
