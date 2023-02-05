@@ -35,9 +35,9 @@ export function calculate_invested(stock){
 class Card extends React.Component {
   constructor(props) {
     super(props);
-    let current_value= calculate_curr(props.prop);
-    let invested_money= calculate_invested(props.prop);
-    let tot_money= invested_money+wallet; 
+    this.current_value= calculate_curr(props.prop);
+    this.invested_money= calculate_invested(props.prop);
+    this.tot_money= this.invested_money+this.wallet; 
   }
   render() {
     return (

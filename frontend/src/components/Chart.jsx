@@ -18,9 +18,9 @@ import {
 class Chart extends React.Component {
   constructor(props) {
     super(props);
-    let current_value= calculate_curr(props.prop);
-    let invested_money= calculate_invested(props.prop);
-    const datas = [
+    this.current_value= calculate_curr(props.prop);
+    this.invested_money= calculate_invested(props.prop);
+    this.datas = [
       { name: "Purchase_costs", Total: invested_money+wallet},
       { name: "Current_value", Total: current_value+wallet},
       

@@ -35,8 +35,8 @@ class AnalyticsPage extends React.Component {
   constructor(props) {
     super(props);
     let api_resp = this.get_stocks(props.user);
-    let wallet_data= api_resp.wallet;
-    let stocks=api_resp.stocks;
+    this.wallet_data= api_resp.wallet;
+    this.stocks=api_resp.stocks;
     
   }
 
