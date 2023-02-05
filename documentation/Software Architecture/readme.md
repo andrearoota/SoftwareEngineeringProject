@@ -1,4 +1,4 @@
-# Software Architecture @andrearoota
+# Software architecture @andrearoota
 
 Il software da noi progettato è basato su un'architettura client-server che utilizza lo stile architetturale [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller):
 - **controller e model**, vengono gestiti dal backend che si occupa di astrarre e manipolare i dati presenti nel database e di gestire le richieste HTTP autenticate e non, il tutto funziona grazie ad uno stack composto da [Apache](https://httpd.apache.org/) - [Laravel](https://laravel.com/) - [PostgreSQL](https://www.postgresql.org/).
