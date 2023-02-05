@@ -1,6 +1,6 @@
 # Quality of Software @CamillaMazzoleni
 ## Introduzione
-Questo file si occupa del descrivere i requisiti di qualità del progetto. In particolare il team si è impegnato per rispettare i requisiti di qualità tassonomici di McCall. In particolare vengono usati le seguenti linee guida per la produzione, revisione e transizione del codice
+Questo documento si occupa di descrivere i requisiti di qualità del progetto. In particolare il team si è impegnato per rispettare i requisiti di qualità tassonomici di McCall. In particolare vengono usati le seguenti linee guida per la produzione, revisione e transizione del codice.
 
 ## 1 Product operation
 - Correctness: il team si è impegnato per rispettare i requisiti 
@@ -10,7 +10,7 @@ Questo file si occupa del descrivere i requisiti di qualità del progetto. In pa
 - Usability: il team si è posto l' obbiettivo di creare un' interfaccia grafica semplice e intuitiva in modo da facilitare l' uso dell' applicazione
 
 ## 2 Product revision
-- Maintainability: Il team si è impegnato per organizzare il codice al meglio, per poterlo mantenere facilmente. In particolare la suddivisione back-end, front-end e modelli statistici permette una gestione migliore del codice
+- Maintainability: Il team si è impegnato per organizzare il codice al meglio, per poterlo mantenere facilmente. In particolare la suddivisione backend, frontend e modelli statistici permette una gestione migliore del codice
 - Testability: tutte le componenti del software sono state testate
 - Flexibility: sempre grazie all' organizzazione del codice, il software è flessibile: la modifica e il perfezionamento sono facilitati da questo
 
