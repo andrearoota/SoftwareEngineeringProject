@@ -56,6 +56,15 @@ Approva o disapprova un utente
 >```
 >localhost:80/api/admin/users/1
 >```
+
+
+### Body formdata
+
+|Param|value|Type|
+|---|---|---|
+|approved_by_administrator|true|boolean|
+
+
 ### 🔑 Authentication bearer
 
 |Param|value|Type|
