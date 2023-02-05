@@ -28,7 +28,7 @@ async function get_stocks(data) {
     .then(response => response.json())
     .catch(error => console.log('error', error))
 
-  return resp.user.stocks;
+  return resp.user;
 }
 
 class AnalyticsPage extends React.Component {
