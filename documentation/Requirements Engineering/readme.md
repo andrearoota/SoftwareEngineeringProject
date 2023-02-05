@@ -2,7 +2,7 @@
 L' ingegneria dei requisiti è una fase importante di un progetto software.
 L' obbiettivo che ci siamo posti è stato quello di ottenere una descrizione completa del problema da risolvere. Il riultato di questa fase è la specifica dei requisiti, in cui sono descritti i requisiti principali della piattaforma, ordinati in base alla priorità.
 
-![Alt text](requirements%20engineering.png)
+![Alt text](./asset/requirements%20engineering.png)
 
 
 # Specifica dei requisiti
@@ -47,7 +47,7 @@ Il sistema non deve interfacciarsi con nessun sistema hardware
 ## Requisiti funzionali
 A tal proposito dividiamo i requisiti in base alla priorità, sulla base di due schemi
 - MOSCOW Model
-![Alt text](moscow.jpg)
+![Alt text](./asset/moscow.jpg)
 
 
 
