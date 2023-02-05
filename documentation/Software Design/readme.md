@@ -2,7 +2,7 @@
 
 Il progetto funziona su uno stack composto da [Apache](https://httpd.apache.org/) - [Laravel](https://laravel.com/) - [PostgreSQL](https://www.postgresql.org/) - [React](https://reactjs.org/) secondo il paradigma [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller).
 
-La gestione dei dati, delle api e della logica è gestita dal cosiddetto backend, composto da Apache, Laravel e PostgreSQL dockerizzati attraverso un tool fortnitoci da Laravel.
+La gestione dei dati, delle api e della logica è gestita dal cosiddetto backend, composto da Apache, Laravel e PostgreSQL dockerizzati attraverso un tool ([Laravel Sail](https://laravel.com/docs/9.x/sail)) fortnitoci da Laravel.
 
 La parte di visualizzazione dei dati e interazione con l'utente viene gestita dal framework React che lavora appoggiandosi agli endpoint forniti dal backend ([documentazione api](../API/)).
 
