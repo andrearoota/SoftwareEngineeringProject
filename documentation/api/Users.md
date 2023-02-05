@@ -71,6 +71,13 @@ Aggiunta fondi al portafoglio
 |Accept|application/json|
 
 
+### Body formdata
+
+|Param|value|Type|
+|---|---|---|
+|increase|57.8|float|
+
+
 ### 🔑 Authentication bearer
 
 |Param|value|Type|
