@@ -35,9 +35,13 @@ export function calculate_invested(stock){
 class Card extends React.Component {
   constructor(props) {
     super(props);
-    this.current_value= calculate_curr(props.prop);
-    this.invested_money= calculate_invested(props.prop);
-    this.tot_money= this.invested_money+this.wallet; 
+    this.state={
+      current_value: calculate_curr(props.prop),
+      invested_money: calculate_invested(props.prop),
+      tot_money: invested_money+props.wallet,
+
+    }
+    
   }
   render() {
     return (
@@ -47,26 +51,26 @@ class Card extends React.Component {
         </div>
         <div className={classes.bottom}>
           <div style={{ width: 200, height: 200 }}>
-          <CircularProgressbar value={this.invested_money/this.tot_money} />
+          <CircularProgressbar value={this.state.invested_money/this.state.tot_money} />
           </div>
           
           <p className={classes.title}>Total money </p>
-          <p className={classes.amount}>{this.tot_money}€</p>
+          <p className={classes.amount}>{this.state.tot_money}€</p>
           <p className={classes.desc}>
             This is the total amount of money you loaded into the app. Check how much you invsted.
           </p>
           <div className={classes.summary}>
             <div className={classes.item}>
               <div className={classes.itemTitle}>Total Amount</div>
-              <div className={classes.resultAmount}>{this.tot_money}€</div>
+              <div className={classes.resultAmount}>{this.state.tot_money}€</div>
             </div>
             <div className={classes.item}>
               <div className={classes.itemTitle}>Invested</div>
-              <div className={classes.resultAmount}>{this.invested_money}€</div>
+              <div className={classes.resultAmount}>{this.state.invested_money}€</div>
             </div>
             <div className={classes.item}>
               <div className={classes.itemTitle}>Curr value</div>
-              <div className={classes.resultAmount}>{this.current_value}€</div>
+              <div className={classes.resultAmount}>{this.state.current_value}€</div>
             </div>
           </div>
         </div>

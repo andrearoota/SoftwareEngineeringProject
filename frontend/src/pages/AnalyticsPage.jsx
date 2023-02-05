@@ -35,8 +35,11 @@ class AnalyticsPage extends React.Component {
   constructor(props) {
     super(props);
     let api_resp = get_stocks(props.user);
-    this.wallet_data= api_resp.wallet;
-    this.stocks=api_resp.stocks;
+    this.state ={
+      wallet_data: api_resp.wallet,
+      stocks : api_resp.stocks,
+    }
+  
     
   }
 
@@ -52,13 +55,13 @@ class AnalyticsPage extends React.Component {
           <div className={classes.homeContainer}>
             <div className={classes.charts}>
               <Pie_Chart prop={this.stocks} />
-              <Card prop={this.stocks} wallet={this.wallet_data} />
+              <Card prop={this.state.stocks} wallet={this.state.wallet_data} />
             </div>
             <div className={classes.charts}>
-              <Chart title="Investment growth" aspect={2 / 1} prop={this.stocks} wallet={this.wallet_data} />
+              <Chart title="Investment growth" aspect={2 / 1} prop={this.state.stocks} wallet={this.state.wallet_data} />
             </div>
             <div className={classes.widgets}>
-              {this.stocks.slice(0,4).map((item) => (
+              {this.state.stocks.slice(0,4).map((item) => (
                 <Widget item={item} />
               ))}
             </div>

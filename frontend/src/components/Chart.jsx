@@ -18,13 +18,18 @@ import {
 class Chart extends React.Component {
   constructor(props) {
     super(props);
-    this.current_value= calculate_curr(props.prop);
-    this.invested_money= calculate_invested(props.prop);
-    this.datas = [
-      { name: "Purchase_costs", Total: this.invested_money+this.wallet},
-      { name: "Current_value", Total: this.current_value+this.wallet},
+    let current_value= calculate_curr(props.prop);
+    let invested_money= calculate_invested(props.prop);
+    prop_data = [
+      { name: "Purchase_costs", Total: invested_money+ props.wallet},
+      { name: "Current_value", Total: current_value+ props.wallet},
       
     ];
+
+    this.state ={
+      data: prop_data,
+    }
+   
   
   }
   render() {
@@ -35,7 +40,7 @@ class Chart extends React.Component {
         <AreaChart
           width={500}
           height={250}
-          data={this.datas}
+          data={this.state.data}
           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
         >
           <defs>
