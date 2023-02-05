@@ -6,40 +6,23 @@ import Chart from "../components/Chart";
 import Pie_Chart from "../components/Pie_Chart";
 import Card from "../components/Card";
 
-const assets = [
-  {
-    amount: 39.354,
-    percentage: -4,
-    title: 'Apple',
-
-  },
-  {
-    amount: 4.396,
-    percentage: +23,
-    title: 'Tesla',
-
-  },
-  {
-    amount: 423.39,
-    percentage: +38,
-    title: 'Microsoft',
-
-  },
-  {
-    amount: 39.354,
-    percentage: -12,
-    title: 'Eni',
-
-  },
-];
+// ANALYTICS PAGE
+//PIECHART that show how the money is allocated (which stocks)
+//CARD that shows how much money is invested, how much is still available, the current value
+//CHART that shows the current value of the wallet vs the initial value
+//WIDGETS that show just the trend of 4 of user stocks
 
 class AnalyticsPage extends React.Component {
   constructor(props) {
     super(props);
-    var stocks = this.get_stocks(props.user)
-    
+    this.get_stocks(props.user);
+    this.state = {
+      wallet_data: 0,
+      stocks: [],
+    }
   }
 
+  //function that returns stocks of user currently logged
   async get_stocks(data) {
 
     var requestOptions = {
@@ -50,12 +33,15 @@ class AnalyticsPage extends React.Component {
       },
       redirect: 'follow'
     };
-  
+
     const resp = await fetch(`http://localhost/api/users/${data.user.id}/stocks`, requestOptions)
       .then(response => response.json())
       .catch(error => console.log('error', error))
-  
-    return resp.user.stocks;
+
+    this.setState({
+      wallet_data: resp.user.wallet,
+      stocks: resp.user.stocks,
+    })
   }
 
   render() {
@@ -67,14 +53,14 @@ class AnalyticsPage extends React.Component {
         <div className={classes.home}>
           <div className={classes.homeContainer}>
             <div className={classes.charts}>
-              <Pie_Chart data={assets} />
-              <Card />
+              <Pie_Chart prop={this.state.stocks} />
+              <Card prop={this.state.stocks} wallet={this.state.wallet_data} />
             </div>
             <div className={classes.charts}>
-              <Chart title="Investment growth" aspect={2 / 1} />
+              <Chart title="Investment growth" aspect={2 / 1} prop={this.state.stocks} wallet={this.state.wallet_data} />
             </div>
             <div className={classes.widgets}>
-              {assets.map((item) => (
+              {this.state.stocks.slice(0, 4).map((item) => (
                 <Widget item={item} />
               ))}
             </div>
