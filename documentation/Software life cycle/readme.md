@@ -9,7 +9,8 @@ le linee guida del metodo agile che hanno guidato lo sviluppo del nostro progett
 - Il team si adatta ai **cambiamenti** in modo flessibile. Se il **cliente** avanzasse delle richieste in fase di implementazione o comunque dopo l’avvenuta stesura dei requisiti, cercheremo di fare in modo di accontentarlo stando in ogni modo attenti a quello che si è sviluppato fino a quel momento.
 
 ## SCRUM LIFE CYCLE
-Per lo sviluppo del software abbiamo seguito lo **SCRUM** life cycle. Inizialmente, dopo aver definito tutti i requisiti del progetto, abbiamo redatto un **product backlog** con tutte le funzionalità da implementare. Per ogni **sprint** poi abbiamo selezionato alcune di queste (in ordine di priorità) in uno sprint backlog e ci siamo concentrati sull' implementazione e il test di queste. Il team si aggiornava ogni giorno nel **Daily Scrum** e in base alle necessità, ci siamo incontrati per gli **Sprint meetings**. Alla fine di ogni sprint, di circa 4 settimane, il team si è ritrovato per la scrittura dello *sprint review*.
+Per lo sviluppo del software abbiamo seguito lo **SCRUM** life cycle. Inizialmente, dopo aver definito tutti i requisiti del progetto, abbiamo redatto un **product backlog** con tutte le funzionalità da implementare. Per ogni **sprint** poi abbiamo selezionato alcune di queste (in ordine di priorità) in uno sprint backlog e ci siamo concentrati sull' implementazione e il test di queste. Il team si aggiornava ogni giorno nel **Daily Scrum** e in base alle necessità, ci siamo incontrati per gli **Sprint meetings**. Alla fine di ogni sprint, di circa 4 settimane, il team si è ritrovato per la scrittura dello **sprint review**.
+![Alt text](assets/agileLifecycleProject.jpg)
 
 
 
