@@ -3,7 +3,7 @@
 Questo documento si occupa di descrivere i requisiti di qualità del progetto. In particolare il team si è impegnato per rispettare i requisiti di qualità tassonomici di McCall. In particolare vengono usati le seguenti linee guida per la produzione, revisione e transizione del codice.
 
 ## 1 Product operation
-- Reliability: il software è affidabile, in quanto è stato estensivamente testato.
+- **Reliability**: il software è affidabile, in quanto è stato estensivamente testato.
 - Efficiency: il software rispetta i requisiti di efficienza descritti nella specifica dei requisiti, in modo da garantire suggerimenti validi per la compravendita di azioni, e per assicurare un utilizzo piacevole della piattaforma.
 - Integrity: il software è sicuro, in quanto è necessaria un' autenticazione con username e password, e una convalida con email per l' associazione del profilo al conto corrente.
 - Usability: il team si è posto l' obbiettivo di creare un' interfaccia grafica semplice e intuitiva in modo da facilitare l' uso dell' applicazione
