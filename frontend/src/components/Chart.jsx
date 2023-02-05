@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from "./Chart.module.css";
-
+import { calculate_curr, calculate_invested } from './Card';
 import {
   AreaChart,
   Area,
@@ -10,16 +10,23 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const data = [
-    { name: "January", Total: 1000 },
-    { name: "February", Total: 1500 },
-    { name: "March", Total: 1200 },
-    { name: "April", Total: 1600 },
-    { name: "May", Total: 900 },
-    { name: "June", Total: 1700 },
-  ];
+// CHART COMPONENT
+// input: stocks of logged user, wallet (available funds) of logged user, aspect ratio of chart and title
+// shows the increment of value of wallet from purchase to now
+
 
 class Chart extends React.Component {
+  constructor(props) {
+    super(props);
+    let current_value= calculate_curr(props.prop);
+    let invested_money= calculate_invested(props.prop);
+    const datas = [
+      { name: "Purchase_costs", Total: invested_money+wallet},
+      { name: "Current_value", Total: current_value+wallet},
+      
+    ];
+  
+  }
   render() {
     return (
       <div className={classes.chart}>
@@ -28,7 +35,7 @@ class Chart extends React.Component {
         <AreaChart
           width={500}
           height={250}
-          data={data}
+          data={this.datas}
           margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
         >
           <defs>
