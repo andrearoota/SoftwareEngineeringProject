@@ -1,6 +1,6 @@
 # Software Life Cycle @pierGit7
 
-** Come approccio di progettazione software per lo sviluppo del sistema ci siamo attenuti alla model-driven architecture (MDA). **
+**Come approccio di progettazione software per lo sviluppo del sistema ci siamo attenuti alla model-driven architecture (MDA).**
 
 Per il processo di sviluppo il team ha scelto un approccio di tipo Agile, per avere una risposta più veloce ai cambiameti e per non essere legati ad un  piano da seguire.
 
