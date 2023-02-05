@@ -9,24 +9,20 @@ import React from "react";
 
 
 //functin to calculate the current value of the wallet of the user
-export function calculate_curr(stock) {
-  let sum = 0;
-  for (let s in stock) {
-    sum += s.current_value * s.number_stocks;
-  }
-  return sum;
+export function calculate_curr(stocks) {
+  return stocks.reduce(
+    (accumulator, stock) => accumulator + (stock.current_value * stock.number_stocks),
+    0 // valore iniziale
+  );
 }
 
 
 //functin to calculate the invested money
-export function calculate_invested(stock) {
-  let sum = 0;
-  for (let s in stock) {
-    sum += s.purchase_cost * s.number_stocks;
-  }
-  return sum;
-
-
+export function calculate_invested(stocks) {
+  return stocks.reduce(
+    (accumulator, stock) => accumulator + (stock.purchase_cost * stock.number_stocks),
+    0 // valore iniziale
+  );
 }
 
 
@@ -38,7 +34,6 @@ class Card extends React.Component {
       invested_money: calculate_invested(props.prop),
       tot_money: calculate_invested(props.prop) + props.wallet,
     }
-
   }
   render() {
     return (
@@ -48,26 +43,26 @@ class Card extends React.Component {
         </div>
         <div className={classes.bottom}>
           <div style={{ width: 200, height: 200 }}>
-            <CircularProgressbar value={this.state.invested_money / this.state.tot_money} />
+            <CircularProgressbar value={calculate_invested(this.props.prop) / calculate_invested(this.props.prop) + this.props.wallet} />
           </div>
 
           <p className={classes.title}>Total money </p>
-          <p className={classes.amount}>{this.state.tot_money}€</p>
+          <p className={classes.amount}>{calculate_invested(this.props.prop) + this.props.wallet}€</p>
           <p className={classes.desc}>
             This is the total amount of money you loaded into the app. Check how much you invsted.
           </p>
           <div className={classes.summary}>
             <div className={classes.item}>
               <div className={classes.itemTitle}>Total Amount</div>
-              <div className={classes.resultAmount}>{this.state.tot_money}€</div>
+              <div className={classes.resultAmount}>{calculate_invested(this.props.prop) + this.props.wallet}€</div>
             </div>
             <div className={classes.item}>
               <div className={classes.itemTitle}>Invested</div>
-              <div className={classes.resultAmount}>{this.state.invested_money}€</div>
+              <div className={classes.resultAmount}>{calculate_invested(this.props.prop)}€</div>
             </div>
             <div className={classes.item}>
               <div className={classes.itemTitle}>Curr value</div>
-              <div className={classes.resultAmount}>{this.state.current_value}€</div>
+              <div className={classes.resultAmount}>{calculate_curr(this.props.prop)}€</div>
             </div>
           </div>
         </div>
