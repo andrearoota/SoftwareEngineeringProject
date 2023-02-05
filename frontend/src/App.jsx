@@ -80,17 +80,17 @@ class App extends React.Component {
       .then(response => response.json())
       .catch(error => console.log('error', error));
 
-    /* if (resp.status === "success") {
+    if (resp.status === "success") {
       document.cookie = `user=${JSON.stringify(resp)}`;
 
       this.setState({ logged: true, user: resp });
     } else {
       alert("Username o password errati");
       this.setState({ user: null });
-    } */
+    }
 
     //for testing purposes
-    this.setState({logged:true});
+    //this.setState({logged:true});
   }
 
   //metodo gestoreLogin: da passare alla pagina di registrazione per gestire la medesima
