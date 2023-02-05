@@ -39,12 +39,8 @@ class AnalyticsPage extends React.Component {
       wallet_data: api_resp.wallet,
       stocks : api_resp.stocks,
     }
-  
     
   }
-
-  
-
   render() {
     return (
       <div className={classes.menu}>
