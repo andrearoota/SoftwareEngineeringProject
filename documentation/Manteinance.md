@@ -1,0 +1,3 @@
+# Manutenzione
+Successivamente alla consegna dell'applicativo è stata avviata la fase di manutenzione, che si stima richieda 20 ore al mese per ogni membro del team. Ad oggi si è trattato principalmente di manutenzione correttiva e preventiva (essendo il sistema in funzione da poco tempo non ci sono ancora state veri e propri cambiamenti dell'ambiente o delle richieste di mercato).
+Per quanto riguarda la manutenzione correttiva il team dedica parte del suo tempo all'utilizzo dell'applicativo per cercare bug o funzionalità non correttamente implementate.
