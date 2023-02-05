@@ -54,7 +54,7 @@ class AnalyticsPage extends React.Component {
         <div className={classes.home}>
           <div className={classes.homeContainer}>
             <div className={classes.charts}>
-              <Pie_Chart prop={this.stocks} />
+              <Pie_Chart prop={this.state.stocks} />
               <Card prop={this.state.stocks} wallet={this.state.wallet_data} />
             </div>
             <div className={classes.charts}>
