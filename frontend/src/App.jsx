@@ -49,7 +49,7 @@ class App extends React.Component {
       method: 'POST',
       headers: {
         "Accept": "application/json",
-        "Authorization": "Bearer" + this.state.user.authorization.token,
+        "Authorization": `Bearer ${this.state.user.authorisation.token}`,
       },
       redirect: 'follow',
     };
@@ -60,7 +60,9 @@ class App extends React.Component {
 
     if (resp.status === "success") {
       this.setState({ logged: false, });
-      alert(resp.message);
+      const d = new Date('1970-01-01T00:00:00');
+      let expires = "expires=" + d.toUTCString();
+      document.cookie = `user=${JSON.stringify(resp)};${expires};path=/`;
     }
   }
 
@@ -81,7 +83,10 @@ class App extends React.Component {
       .catch(error => console.log('error', error));
 
     if (resp.status === "success") {
-      document.cookie = `user=${JSON.stringify(resp)}`;
+      const d = new Date();
+      d.setTime(d.getTime() + (1 * 86400000));
+      let expires = "expires=" + d.toUTCString();
+      document.cookie = `user=${JSON.stringify(resp)};${expires};path=/`;
 
       this.setState({ logged: true, user: resp });
     } else {
@@ -129,7 +134,7 @@ class App extends React.Component {
   render() {
     return (
       <Routes>
-        <Route exact path='/approval' element={<PaginaApprovazioni/>} />
+        <Route exact path='/approval' element={<PaginaApprovazioni />} />
         <Route exact path='/' element={<LandingPage />} />
         <Route exact path='/login' element={
           this.state.logged ? <Navigate to='/app/analytics' replace /> : <LoginPage onLogin={this.gestoreLogin} onLogout={this.logout} />
