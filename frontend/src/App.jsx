@@ -41,6 +41,7 @@ class App extends React.Component {
     this.gestoreLogin = this.gestoreLogin.bind(this);
     this.gestoreSignin = this.gestoreSignin.bind(this);
     this.logout = this.logout.bind(this);
+    this.gestoreSoldi = this.gestoreSoldi.bind(this);
   }
 
   //metodo logout: imposta lo stato su non loggato
@@ -127,8 +128,32 @@ class App extends React.Component {
     }
   }
 
-  gestoreSoldi(event) {
+  async gestoreSoldi(event) {
     event.preventDefault();
+    let set = new FormData(document.getElementById('money'));
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("increase", set.get("movement") === "true" ? parseFloat(set.get("amount")) : -1 * parseFloat(set.get("amount")));
+    //versa soldi
+    var requestOptions = {
+      method: 'PATCH',
+      headers: {
+        "Accept": "application/json",
+        "Authorization": "Bearer" + this.state.user.authorisation.token,
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: urlencoded,
+      redirect: 'follow'
+    };
+
+    const resp = await fetch(`http://localhost/api/users/${this.state.user.user.id}/increase`, requestOptions)
+      .then(response => response.json())
+      .catch(error => console.log('error', error));
+
+    if (resp.status === "success") {
+      alert("Versamento effettuato con successo,");
+    } else {
+      alert("Il versamento non è andato a buon fine, ritenta");
+    }
   }
 
   render() {
