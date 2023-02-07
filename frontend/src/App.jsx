@@ -201,7 +201,7 @@ class App extends React.Component {
         } />
         <Route exact path='/app/settings' element={
           <div>
-            <SettingsPage apriMenu={() => { this.setState({ menuAperto: true }) }} />
+            <SettingsPage user={this.state.user} apriMenu={() => { this.setState({ menuAperto: true }) }} />
             {this.state.menuAperto ?
               <Backdrop onClick={() => {
                 this.setState({ menuAperto: false })
