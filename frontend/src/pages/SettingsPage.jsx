@@ -44,6 +44,7 @@ class SettingsPage extends React.Component {
       last_name: resp.user.last_name,
       gender: resp.user.gender,
       birthdate: formatbirthdate.toLocaleDateString("en-GB"),
+      email: resp.user.email,
       cf: resp.user.codice_fiscale,
       is_admin: resp.user.is_admin,
     })
@@ -52,7 +53,7 @@ class SettingsPage extends React.Component {
     var options = [
       {
         header: {
-          name: "Account",
+          name: "Information",
         },
 
         values: [
@@ -86,22 +87,22 @@ class SettingsPage extends React.Component {
 
       {
         header: {
-          name: "Update",
+          name: "Account",
         },
 
         values: [
           {
+            name: "Email",
+            description: "Your user email",
+            data: this.state.email,
+          },
+          {
             name: "Are you pro?",
             description: "Your current account",
+            data: this.state.is_admin ? "admin" : "base user",
           },
-          {
-            name: "Billing Information",
-            description: "Manage your billing information",
-          },
-          {
-            name: "Invoices",
-            description: "Track your invoices and their status",
-          },
+          
+          
         ],
       },
 
