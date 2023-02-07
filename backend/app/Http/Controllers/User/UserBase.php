@@ -82,13 +82,14 @@ class UserBase extends UserAbstract
         }
 
         // if withdraw
+        $amount = -$amount; // Lo rendo positivo per semplicità di calcolo e leggibilità
         if ($this->user->wallet >= $amount) {
 
             /**
              * Qua ci va la logica di collegamento con l'istituto bancario
              */
 
-            $this->user->wallet += $amount;
+            $this->user->wallet -= $amount;
         } else {
             $totalStocksValue = 0;
 
@@ -97,7 +98,20 @@ class UserBase extends UserAbstract
             });
 
             if ($totalStocksValue >= $amount) {
-                $this->user->wallet += $amount;
+                $totalSellValue = 0;
+                // Sell stocks
+                $this->user->stocks->each(function ($item) use ($totalSellValue, $amount) {
+                    do {
+                        $totalSellValue += $item->current_value;
+                        $item->number_stocks--;
+
+                        if ($amount > $totalSellValue) {
+                            return false;
+                        }
+                    } while ($item->number_stocks > 0);
+                });
+
+                $this->user->wallet -= $amount;
             } else {
                 return response()->json([
                     'status' => 'error',
