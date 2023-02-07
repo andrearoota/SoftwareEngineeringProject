@@ -122,8 +122,29 @@ class App extends React.Component {
     }
   }
 
-  gestoreSoldi(event) {
+  async gestoreSoldi(event) {
     event.preventDefault();
+    let set = new FormData(document.getElementById('money'));
+    if(set.get("movement")) {   //true se versamento, false se prelievo
+      //versa soldi
+      var requestOptions = {
+        method: 'PATCH',
+        headers: { "Accept": "application/json", "Authorization": "Bearer" + this.state.user.authorization.token }
+      };
+
+      const resp = await fetch("localhost:80/api/users/11/increase", requestOptions)
+        .then(response => response.json())
+        .catch(error => console.log('error', error));
+
+      if (resp.status === "success") {
+        alert("Versamento effettuato con successo,");
+      } else {
+        alert("Il versamento non è andato a buon fine, ritenta");
+      }
+
+    } else {
+      //preleva soldi
+    }
   }
 
   render() {
