@@ -44,6 +44,7 @@ class SettingsPage extends React.Component {
       last_name: resp.user.last_name,
       gender: resp.user.gender,
       birthdate: formatbirthdate.toLocaleDateString("en-GB"),
+      email: resp.user.email,
       cf: resp.user.codice_fiscale,
       is_admin: resp.user.is_admin,
     })
@@ -52,33 +53,28 @@ class SettingsPage extends React.Component {
     var options = [
       {
         header: {
-          name: "Account",
+          name: "Information",
         },
 
         values: [
           {
             name: "Name",
-            description: "Your personal data",
             data: this.state.first_name,
           },
           {
             name: "Surname",
-            description: "Your personal data",
             data: this.state.last_name,
           },
           {
             name: "Gender",
-            description: "m/f",
             data: this.state.gender,
           },
           {
             name: "Birthdate",
-            description: "Your bithdate",
             data: this.state.birthdate,
           },
           {
             name: "Tax number",
-            description: "Your tax number",
             data: this.state.cf,
           },
         ],
@@ -86,22 +82,18 @@ class SettingsPage extends React.Component {
 
       {
         header: {
-          name: "Update",
+          name: "Account",
         },
 
         values: [
           {
+            name: "Email",
+            data: this.state.email,
+          },
+          {
             name: "Are you pro?",
-            description: "Your current account",
-          },
-          {
-            name: "Billing Information",
-            description: "Manage your billing information",
-          },
-          {
-            name: "Invoices",
-            description: "Track your invoices and their status",
-          },
+            data: this.state.is_admin ? "admin" : "base user",
+          },   
         ],
       },
 
