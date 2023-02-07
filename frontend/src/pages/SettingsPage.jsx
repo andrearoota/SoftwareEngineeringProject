@@ -59,27 +59,22 @@ class SettingsPage extends React.Component {
         values: [
           {
             name: "Name",
-            description: "Your personal data",
             data: this.state.first_name,
           },
           {
             name: "Surname",
-            description: "Your personal data",
             data: this.state.last_name,
           },
           {
             name: "Gender",
-            description: "m/f",
             data: this.state.gender,
           },
           {
             name: "Birthdate",
-            description: "Your bithdate",
             data: this.state.birthdate,
           },
           {
             name: "Tax number",
-            description: "Your tax number",
             data: this.state.cf,
           },
         ],
@@ -93,12 +88,10 @@ class SettingsPage extends React.Component {
         values: [
           {
             name: "Email",
-            description: "Your user email",
             data: this.state.email,
           },
           {
             name: "Are you pro?",
-            description: "Your current account",
             data: this.state.is_admin ? "admin" : "base user",
           },
           
