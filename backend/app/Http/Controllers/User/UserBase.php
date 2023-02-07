@@ -14,7 +14,7 @@ class UserBase extends UserAbstract
      * @var App\Models\User
      */
     private $user;
-    
+
     /**
      * We establish this function in our controller class so that we can use the auth:api middleware
      * within it to block unauthenticated access to certain methods within the controller
@@ -67,7 +67,64 @@ class UserBase extends UserAbstract
             throw new AuthorizationException('non autorizzato');
         }
 
-        $this->user->wallet += $request->float('increase');
+        $amount = $request->float('increase');
+
+        // if deposit 
+        if ($amount >= 0) {
+            $this->user->wallet += $amount;
+            $this->user->save();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Wallet updated successfully',
+                'user' => $this->user,
+            ]);
+        }
+
+        // if withdraw
+        $amount = -$amount; // Lo rendo positivo per semplicità di calcolo e leggibilità
+        if ($this->user->wallet >= $amount) {
+
+            /**
+             * Qua ci va la logica di collegamento con l'istituto bancario
+             */
+
+            $this->user->wallet -= $amount;
+        } else {
+            $totalStocksValue = 0;
+
+            $this->user->stocks->each(function ($item) use (&$totalStocksValue) {
+                $totalStocksValue += ($item->number_stocks * $item->current_value);
+            });
+
+            if (($totalStocksValue + $this->user->wallet) >= $amount) {
+
+                $this->user->wallet;
+                // Sell stocks
+                foreach ($this->user->stocks as &$stock) {
+                    do {
+                        $this->user->wallet += $stock->current_value;
+
+                        $stock->number_stocks--;
+
+                        if ($amount < $this->user->wallet) {
+                            $stock->number_stocks === 0 ? $stock->delete() : $stock->save();
+                            break 2;
+                        }
+                    } while ($stock->number_stocks > 0);
+                    $stock->delete();
+                }
+
+                $this->user->wallet -= $amount;
+            } else {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Unavailable funds',
+                    'user' => $this->user,
+                ]);
+            }
+        }
+
         $this->user->save();
 
         return response()->json([

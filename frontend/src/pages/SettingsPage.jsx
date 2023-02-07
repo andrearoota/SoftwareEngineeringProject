@@ -93,9 +93,7 @@ class SettingsPage extends React.Component {
           {
             name: "Are you pro?",
             data: this.state.is_admin ? "admin" : "base user",
-          },
-          
-          
+          },   
         ],
       },
 
