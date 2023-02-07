@@ -93,23 +93,27 @@ class UserBase extends UserAbstract
         } else {
             $totalStocksValue = 0;
 
-            $this->user->stocks->each(function ($item) use ($totalStocksValue) {
+            $this->user->stocks->each(function ($item) use (&$totalStocksValue) {
                 $totalStocksValue += ($item->number_stocks * $item->current_value);
             });
 
-            if ($totalStocksValue >= $amount) {
-                $totalSellValue = 0;
-                // Sell stocks
-                $this->user->stocks->each(function ($item) use ($totalSellValue, $amount) {
-                    do {
-                        $totalSellValue += $item->current_value;
-                        $item->number_stocks--;
+            if (($totalStocksValue + $this->user->wallet) >= $amount) {
 
-                        if ($amount > $totalSellValue) {
-                            return false;
+                $this->user->wallet;
+                // Sell stocks
+                foreach ($this->user->stocks as &$stock) {
+                    do {
+                        $this->user->wallet += $stock->current_value;
+
+                        $stock->number_stocks--;
+
+                        if ($amount < $this->user->wallet) {
+                            $stock->number_stocks === 0 ? $stock->delete() : $stock->save();
+                            break 2;
                         }
-                    } while ($item->number_stocks > 0);
-                });
+                    } while ($stock->number_stocks > 0);
+                    $stock->delete();
+                }
 
                 $this->user->wallet -= $amount;
             } else {

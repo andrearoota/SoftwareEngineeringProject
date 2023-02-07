@@ -41,6 +41,7 @@ class App extends React.Component {
     this.gestoreLogin = this.gestoreLogin.bind(this);
     this.gestoreSignin = this.gestoreSignin.bind(this);
     this.logout = this.logout.bind(this);
+    this.gestoreSoldi = this.gestoreSoldi.bind(this);
   }
 
   //metodo logout: imposta lo stato su non loggato
@@ -125,32 +126,35 @@ class App extends React.Component {
   async gestoreSoldi(event) {
     event.preventDefault();
     let set = new FormData(document.getElementById('money'));
-    if(set.get("movement")) {   //true se versamento, false se prelievo
-      //versa soldi
-      var requestOptions = {
-        method: 'PATCH',
-        headers: { "Accept": "application/json", "Authorization": "Bearer" + this.state.user.authorization.token }
-      };
+    var urlencoded = new URLSearchParams();
+    urlencoded.append("increase", set.get("movement") === "true" ? parseFloat(set.get("amount")) : -1 * parseFloat(set.get("amount")));
+    //versa soldi
+    var requestOptions = {
+      method: 'PATCH',
+      headers: {
+        "Accept": "application/json",
+        "Authorization": "Bearer" + this.state.user.authorisation.token,
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: urlencoded,
+      redirect: 'follow'
+    };
 
-      const resp = await fetch("localhost:80/api/users/11/increase", requestOptions)
-        .then(response => response.json())
-        .catch(error => console.log('error', error));
+    const resp = await fetch(`http://localhost/api/users/${this.state.user.user.id}/increase`, requestOptions)
+      .then(response => response.json())
+      .catch(error => console.log('error', error));
 
-      if (resp.status === "success") {
-        alert("Versamento effettuato con successo,");
-      } else {
-        alert("Il versamento non è andato a buon fine, ritenta");
-      }
-
+    if (resp.status === "success") {
+      alert("Versamento effettuato con successo,");
     } else {
-      //preleva soldi
+      alert("Il versamento non è andato a buon fine, ritenta");
     }
   }
 
   render() {
     return (
       <Routes>
-        <Route exact path='/approval' element={<PaginaApprovazioni/>} />
+        <Route exact path='/approval' element={<PaginaApprovazioni />} />
         <Route exact path='/' element={<LandingPage />} />
         <Route exact path='/login' element={
           this.state.logged ? <Navigate to='/app/analytics' replace /> : <LoginPage onLogin={this.gestoreLogin} onLogout={this.logout} />
