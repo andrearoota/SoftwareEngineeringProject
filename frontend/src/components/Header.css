@@ -1,0 +1,34 @@
+header {
+    width: 1290px;
+    margin: auto;
+    max-width: 95%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+
+header .btn-try {
+    display: flex;
+    flex-direction: column;
+}
+
+header .btn-try button {
+    font-family: inherit;
+    padding: 10px 30px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #494a4c;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    line-height: 27px;
+    text-align: left;
+    color: #707072;
+    border-radius: 40px;
+    cursor: pointer;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import classes from './LoginPage.module.css';
 
+
 // LoginPage
 // Renderizza la pagina di login, contenente il form apposito e un bottone per aprire il menu laterale
 // Argomenti:

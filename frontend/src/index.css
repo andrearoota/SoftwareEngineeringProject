@@ -16,21 +16,28 @@ code {
 
 .navbar{
   text-align: right;
-  position: fixed;
   top: 0;
   right: 0;
   width: 100%;
 }
 
 .navigation{
-  margin: 5px;
-  background-color: black;
-  border-radius: 5px;
-  border-style: hidden;
-  font-size: large;
-  color: white;
-  padding: 5px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
+    padding: 10px 30px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #494a4c;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    line-height: 27px;
+    text-align: left;
+    color: #707072;
+    border-radius: 40px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .menu{
