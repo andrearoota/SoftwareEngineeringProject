@@ -21,26 +21,27 @@ export default class Pie_Chart extends React.Component {
       <div className={classes.piechart}>
         <div className={classes.title}>Stocks</div>
 
-        
-      <PieChart width={600} height={400}>
-        <Pie
-          data={this.props.prop}
-          cx={300}
-          cy={200}
-          labelLine={true}
-          label
-          outerRadius={180}
-          fill="#8884d8"
-          dataKey="current_value"
-          nameKey="stock_name"
-        >
-          {this.props.prop.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-        <Tooltip />
-      </PieChart>
-      </div>
+        <ResponsiveContainer height={500}>
+        <PieChart >
+          <Pie
+            data={this.props.prop}
+            cx="50%"
+            cy="50%"
+            labelLine={true}
+            label
+            outerRadius={180}
+            fill="#8884d8"
+            dataKey="current_value"
+            nameKey="stock_name"
+          >
+            {this.props.prop.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+          <Tooltip />
+        </PieChart>
+      </ResponsiveContainer>
+      </div >
     );
   }
 }
