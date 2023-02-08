@@ -50,7 +50,8 @@ SMA_3<-data.frame(1:14)
 SMA_7<-data.frame(1:14)
 
 #getting user's Stock
-userStock<- GET('http://localhost/api/admin/stocks',add_headers(Authorization='Bearer TOKEN'))
+Token <- commandArgs()
+userStock<- GET('http://localhost/api/admin/stocks',add_headers(Authorization=paste("Bearer ",Token)))
 
 #API request to get all the EOD data for each stock
 for(s in symbols){
@@ -68,12 +69,12 @@ for(s in symbols){
   SMA_7[s]<-sma(ts(dati_totali[s]),order = 7,silent = FALSE)$fitted
 }
 
-#binding date information to each value
+#binding date's information to each value
 date<-rev(dati[["data"]][["eod"]][["date"]])
 SMA_3<-dplyr::bind_cols(date,SMA_3)
 SMA_7<-dplyr::bind_cols(date,SMA_7)
 
-#creating a list of buy_sel where each stock are checked 
+#creating a list of buy_sell where each stock are checked 
 list_buy_sell<-buy_sell(SMA_3,SMA_7,dati_totali)
 
 

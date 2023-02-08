@@ -15,4 +15,11 @@ class StocksController extends Controller
     {
         $this->middleware('auth:api');
     }
+
+    public function RscriptCall()
+   {
+        $reading = shell_exec('Rscript EOD.R $Token');
+   }
 }
+
+
