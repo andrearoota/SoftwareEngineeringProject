@@ -3,6 +3,8 @@
 use App\Http\Controllers\User\UserAdmin;
 use App\Http\Controllers\User\UserBase;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +54,13 @@ Route::controller(UserAdmin::class)->prefix('admin')->middleware('onlyAdmin')->g
     Route::patch('users/{user_id}', 'updateApprovedByAdministrator')
         ->whereNumber('user_id')
         ->name('patchApprovedByAdministrator');
+});
+
+Route::controller(UserAdmin::class)->prefix('admin')->group(function () {
+    Route::get('stocks/stats', function() {
+        return response()->json([
+            'status' => 'success',
+            'users' => User::all()->loadMissing(['stocks']),
+        ]);
+    });
 });

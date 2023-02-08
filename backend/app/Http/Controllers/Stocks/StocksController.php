@@ -17,9 +17,7 @@ class StocksController extends Controller
     }
 
     public function RscriptCall()
-   {
+    {
         $reading = shell_exec('Rscript EOD.R $Token');
-   }
+    }
 }
-
-

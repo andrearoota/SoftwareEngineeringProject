@@ -50,15 +50,13 @@ SMA_3<-data.frame(1:14)
 SMA_7<-data.frame(1:14)
 
 #getting user's Stock
-Token <- commandArgs()
-userStock<- GET('http://localhost/api/admin/stocks',add_headers(Authorization=paste("Bearer ",Token)))
+userStock<- GET('http://localhost/api/admin/stocks/stats')
 
 #API request to get all the EOD data for each stock
 for(s in symbols){
 
 
   r<- GET(paste('https://api.marketstack.com/v1/tickers/', s, '/eod', sep=''),add_headers(Name = 'access_key',Name='limit'),query=list(access_key='b7f513ecf8b91aa4dc345df69bf55a3d',limit=14))
-
   #convert JSON text in dataframe
   dati<-fromJSON(content(r,as="text"))
   dati_totali[s]=rev(dati[["data"]][["eod"]][["adj_close"]])
