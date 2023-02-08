@@ -2,26 +2,6 @@ import React from 'react';
 import "../index.css";
 import classes from './Approvazioni.module.css';
 
-/* const datiprova=[
-    {
-        first_name:"Matteo",
-        last_name:"Colombo",
-        gender:"m",
-        birthdate:"2001-10-05",
-        codice_fiscale:"non vi do il mio codice fiscale ladri",
-        email:"m.colombo77@studenti.unibg.it",
-        password:"admin",
-    },
-    {
-        first_name:"Pier",
-        last_name:"Il fannullone",
-        gender:"f",
-        birthdate:"2001-10-05",
-        codice_fiscale:"non vi do il mio codice fiscale",
-        email:"pier@studenti.unibg.it",
-        password:"admin",
-    }
-] */
 
 // la pagina approvazioni non è raggiunta da nessun pulsante/link né contiene pulsanti/link ad altre pagine in quanto destinata solo all'admin
 export default class PaginaApprovazioni extends React.Component {
@@ -83,26 +63,37 @@ export default class PaginaApprovazioni extends React.Component {
     render() {
         if (this.state.users > 0) {
             return (
-                this.state.users.map(
-                    (item) => {
-                        return (
-                            <div key={item.id} className={classes.item}>
-                                <table>
-                                    <tr>
-                                        <td>
-                                            {item.first_name}<br />{item.last_name}<br />{item.gender}<br />{item.birthdate}<br />{item.codice_fiscale}<br />{item.email}
-                                        </td>
-                                        <td className={classes.casella}>
-                                            <button onClick={this.approva.bind(this, item)}>Approva</button>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        );
-                    }
-                )
+                <div className={classes.menu}>
+                    <button onClick={this.props.apriMenu} className='menu'><i className='fas fa-bars' /></button>
+
+
+                    {this.state.users.map(
+                        (item) => {
+                            return (
+                                <div key={item.id} className={classes.item}>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                {item.first_name}<br />{item.last_name}<br />{item.gender}<br />{item.birthdate}<br />{item.codice_fiscale}<br />{item.email}
+                                            </td>
+                                            <td className={classes.casella}>
+                                                <button onClick={this.approva.bind(this, item)}>Approva</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            );
+                        }
+                    )}
+
+                </div>
             );
         }
-        return (<h5>Nessun utente da approvare</h5>)
+        return (
+            <div className={classes.menu}>
+                <button onClick={this.props.apriMenu} className='menu'><i className='fas fa-bars' /></button>
+
+                <h5>Nessun utente da approvare</h5>
+            </div>)
     }
 }

@@ -11,36 +11,16 @@ import classi from './MenuLaterale.module.css';
 class MenuLaterale extends React.Component {
 
     render() {
-        if (this.props.user.user.is_admin) {
-            return (
-                <>
-                    <h5>Hello {this.props.user.user.first_name}</h5>
-                    <div className={classi.hamb}>
-                        <Link to='/app/analytics' replace={true} onClick={this.props.onClick}>Analytics</Link><br />
-                        <Link to='/app/money' replace={true} onClick={this.props.onClick}>Gestione wallet</Link><br />
-                        <Link to='/app/notifications' replace={true} onClick={this.props.onClick}>Notifiche</Link><br />
-                        <Link to='/app/settings' replace={true} onClick={this.props.onClick}>Impostazioni</Link><br />
-                        <Link to='/app/approval' replace={true} onClick={this.props.onClick}>Approvazione utente</Link><br />
-                        <Link to='/app/sell' replace={true} onClick={this.props.onClick}>Vendi</Link><br />
-                        <Link to='/' replace={true} onClick={this.props.exit}>Logout</Link>
-                    </div>
-                </>
-
-            );
-        }
-
         return (
-            <>
-                <h5>Hello {this.props.user.user.first_name}</h5>
-                <div className={classi.hamb}>
-                    <Link to='/app/analytics' replace={true} onClick={this.props.onClick}>Analytics</Link><br />
-                    <Link to='/app/money' replace={true} onClick={this.props.onClick}>Gestione wallet</Link><br />
-                    <Link to='/app/notifications' replace={true} onClick={this.props.onClick}>Notifiche</Link><br />
-                    <Link to='/app/settings' replace={true} onClick={this.props.onClick}>Impostazioni</Link><br />
-                    <Link to='/app/sell' replace={true} onClick={this.props.onClick}>Vendi</Link><br />
-                    <Link to='/' replace={true} onClick={this.props.exit}>Logout</Link>
-                </div>
-            </>
+            <div className={classi.hamb}>
+                <Link to='/app/analytics' replace={true} onClick={this.props.onClick}>Analytics</Link><br />
+                <Link to='/app/money' replace={true} onClick={this.props.onClick}>Gestione wallet</Link><br />
+                <Link to='/app/notifications' replace={true} onClick={this.props.onClick}>Notifiche</Link><br />
+                <Link to='/app/settings' replace={true} onClick={this.props.onClick}>Impostazioni</Link><br />
+                <Link to='/app/approval' replace={true} onClick={this.props.onClick}>Approvazione utente</Link><br />
+                <Link to='/app/sell' replace={true} onClick={this.props.onClick}>Vendi</Link><br />
+                <Link to='/' replace={true} onClick={this.props.exit}>Logout</Link>
+            </div>
         );
     }
 }
