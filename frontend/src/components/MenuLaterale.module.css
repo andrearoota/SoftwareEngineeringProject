@@ -1,4 +1,4 @@
-.hamb{
+.hamb {
   position: fixed;
   left: 0;
   top: 0;
@@ -6,7 +6,17 @@
   padding: 50px;
   background-color: white;
   height: 100%;
-  width: 20%;
+  width: 25rem;
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.hamb a {
+  padding-bottom: .5rem;
+  text-decoration: none;
+  font-size: 1.25em;
+  color: rgba(0, 0, 0, 0.90);
 }
 
 .backdrop {
@@ -17,9 +27,4 @@
   height: 100vh;
   top: 0;
   left: 0;
-}
-
-.logoutButton{
-  height: 100%;
-  padding-top: 180%;
 }
