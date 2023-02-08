@@ -9,12 +9,12 @@ import classes from './LoginPage.module.css';
 // - onLogin funzione che gestisca il submit da parte dell'utente del form suddetto
 
 class LoginPage extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <div className="navbar">
                     <Link to="/sign-in"><button className="navigation">Non hai un account? Registrati</button></Link>
@@ -23,10 +23,10 @@ class LoginPage extends React.Component {
                     Email<br />
                     <input type="email" name="email" required />
                     <br />Password<br />
-                    <input type="password" name="password" required/>
+                    <input type="password" name="password" required />
                     <br /><button type="submit" className={classes.go}>Entra</button>
                     <div className={classes.fp}>
-                        <a onClick={ ()=>{return alert("Cazzi tuoi")} } >Password dimenticata?</a>
+                        <a onClick={() => { return alert("Funzionalità non implementata") }} >Password dimenticata?</a>
                     </div>
                 </form>
             </div>

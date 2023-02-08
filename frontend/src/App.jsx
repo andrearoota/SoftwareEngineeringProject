@@ -159,7 +159,6 @@ class App extends React.Component {
   render() {
     return (
       <Routes>
-        <Route exact path='/approval' element={<PaginaApprovazioni />} />
         <Route exact path='/' element={<LandingPage />} />
         <Route exact path='/login' element={
           this.state.logged ? <Navigate to='/app/analytics' replace /> : <LoginPage onLogin={this.gestoreLogin} onLogout={this.logout} />
@@ -174,7 +173,7 @@ class App extends React.Component {
                 this.setState({ menuAperto: false })
               }} />
               : null}
-            {this.state.menuAperto ? <MenuLaterale exit={this.logout} onClick={() => this.setState({ menuAperto: false })} /> : null}
+            {this.state.menuAperto ? <MenuLaterale user={this.state.user} exit={this.logout} onClick={() => this.setState({ menuAperto: false })} /> : null}
           </div>
         } />
         <Route exact path='/app/money' element={
@@ -210,6 +209,18 @@ class App extends React.Component {
             {this.state.menuAperto ? <MenuLaterale exit={this.logout} onClick={() => this.setState({ menuAperto: false })} /> : null}
           </div>
         } />
+        <Route exact path='/app/approval' element={
+          <div>
+            <PaginaApprovazioni user={this.state.user} apriMenu={() => { this.setState({ menuAperto: true }) }} />
+            {this.state.menuAperto ?
+              <Backdrop onClick={() => {
+                this.setState({ menuAperto: false })
+              }} />
+              : null}
+            {this.state.menuAperto ? <MenuLaterale exit={this.logout} onClick={() => this.setState({ menuAperto: false })} /> : null}
+          </div>
+        } />
+
       </Routes>
     );
   }
