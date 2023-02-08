@@ -55,7 +55,7 @@ class Card extends React.Component {
         </div>
         <div className={classes.bottom}>
           <div style={{ width: 200, height: 200 }}>
-            <CircularProgressbar value={this.state.invested_money / (this.state.calculate_curr + this.state.wallet)} />
+            <CircularProgressbar value={this.state.invested_money / (this.state.current_value + this.state.wallet) * 100} />
           </div>
 
           <p className={classes.title}>Total money </p>
