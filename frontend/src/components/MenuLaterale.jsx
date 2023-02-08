@@ -21,6 +21,7 @@ class MenuLaterale extends React.Component {
                         <Link to='/app/notifications' replace={true} onClick={this.props.onClick}>Notifiche</Link><br />
                         <Link to='/app/settings' replace={true} onClick={this.props.onClick}>Impostazioni</Link><br />
                         <Link to='/app/approval' replace={true} onClick={this.props.onClick}>Approvazione utente</Link><br />
+                        <Link to='/app/sell' replace={true} onClick={this.props.onClick}>Vendi</Link><br />
                         <Link to='/' replace={true} onClick={this.props.exit}>Logout</Link>
                     </div>
                 </>
@@ -36,7 +37,7 @@ class MenuLaterale extends React.Component {
                     <Link to='/app/money' replace={true} onClick={this.props.onClick}>Gestione wallet</Link><br />
                     <Link to='/app/notifications' replace={true} onClick={this.props.onClick}>Notifiche</Link><br />
                     <Link to='/app/settings' replace={true} onClick={this.props.onClick}>Impostazioni</Link><br />
-                <Link to='/app/sell' replace={true} onClick={this.props.onClick}>Vendi</Link><br />
+                    <Link to='/app/sell' replace={true} onClick={this.props.onClick}>Vendi</Link><br />
                     <Link to='/' replace={true} onClick={this.props.exit}>Logout</Link>
                 </div>
             </>
