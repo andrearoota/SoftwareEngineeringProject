@@ -42,7 +42,7 @@ class StocksController extends Controller
         return response()->json([
             'status' => 'success',
             'message' => 'Stocks updated successfully',
-            'user' => $user,
+            'user' => $user->loadMissing(['stocks']),
         ]);
     }
 }

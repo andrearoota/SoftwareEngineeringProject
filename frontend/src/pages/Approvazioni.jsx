@@ -1,4 +1,5 @@
 import React from 'react';
+import "../index.css";
 import classes from './Approvazioni.module.css';
 
 /* const datiprova=[
