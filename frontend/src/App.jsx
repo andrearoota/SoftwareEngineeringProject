@@ -150,9 +150,9 @@ class App extends React.Component {
       .catch(error => console.log('error', error));
 
     if (resp.status === "success") {
-      alert("Versamento effettuato con successo,");
+      alert("Operazione effettuata con successo");
     } else {
-      alert("Il versamento non è andato a buon fine, ritenta");
+      alert("Operazione fallita, ritenta");
     }
   }
 
