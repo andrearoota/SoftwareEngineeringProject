@@ -159,7 +159,7 @@ class App extends React.Component {
   render() {
     return (
       <Routes>
-        <Route exact path='/approval' element={<PaginaApprovazioni />} />
+        <Route exact path='/approval' element={<PaginaApprovazioni user={this.state.user} />} />
         <Route exact path='/' element={<LandingPage />} />
         <Route exact path='/login' element={
           this.state.logged ? <Navigate to='/app/analytics' replace /> : <LoginPage onLogin={this.gestoreLogin} onLogout={this.logout} />
