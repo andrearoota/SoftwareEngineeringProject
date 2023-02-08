@@ -33,6 +33,29 @@ class SellPage extends React.Component{
         })
       }
 
+      async sell_request(item) {
+    
+        //api
+        var requestOptions = {
+            method: 'DELETE',
+            headers: {
+                "Accept": "application/json",
+                "Authorization": `${this.props.user.authorisation.type} ${this.props.user.authorisation.token}`,
+            },
+
+            redirect: 'follow'
+        };
+
+        const resp = await fetch(`http://localhost/api/users/${item.state.stocks.user_id}/stocks/${item.state.stocks.id}`, requestOptions)
+            .then(response => response.json())
+            .catch(error => console.log('error', error));
+
+        if (resp.status === "success") {
+            this.get_info(this.props.user);
+            //se l'approvazione ha successo richiedo la lista aggiornata degli utenti da approvare
+        }
+    }
+
     render(){
         const columns = [
             {
@@ -49,8 +72,16 @@ class SellPage extends React.Component{
             },
             {
                 name: 'Current Value',
-                selector: row => row.current_value,
+                selector: row => (row.current_value * row.number_stocks),
             },
+            {
+                name: 'Sell',
+                cell: row => {
+                    return (<>
+                        <button className="btn-outline" onClick={this.sell_request(this)}>Sell</button>
+                    </>);
+              },
+            }
         ];
 
 
