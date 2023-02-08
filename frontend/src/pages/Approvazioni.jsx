@@ -11,7 +11,7 @@ export default class PaginaApprovazioni extends React.Component {
 
         //inizializzo vettore utenti
         this.state = {
-            utenti: [],
+            users: [],
         }
     }
 
@@ -31,7 +31,7 @@ export default class PaginaApprovazioni extends React.Component {
 
         //aggiorno vettore utenti
         this.setState({
-            users: resp.users.filter((element, index) => { return !element.approved_by_administrator }), // only users not approved
+            users: resp.users, // only users not approved
         });
     }
 
@@ -61,14 +61,14 @@ export default class PaginaApprovazioni extends React.Component {
     }
 
     render() {
-        if (this.state.users > 0) {
-            return (
-                <div className={classes.menu}>
-                    <button onClick={this.props.apriMenu} className='menu'><i className='fas fa-bars' /></button>
+        return (
+            <div className={classes.menu}>
+                <button onClick={this.props.apriMenu} className='menu'><i className='fas fa-bars' /></button>
+                <h1>Utenti da approvare</h1>
 
-
-                    {this.state.users.map(
-                        (item) => {
+                {this.state.users.map(
+                    (item) => {
+                        if (!item.approved_by_administrator) {
                             return (
                                 <div key={item.id} className={classes.item}>
                                     <table>
@@ -84,16 +84,11 @@ export default class PaginaApprovazioni extends React.Component {
                                 </div>
                             );
                         }
-                    )}
 
-                </div>
-            );
-        }
-        return (
-            <div className={classes.menu}>
-                <button onClick={this.props.apriMenu} className='menu'><i className='fas fa-bars' /></button>
-
-                <h5>Nessun utente da approvare</h5>
-            </div>)
+                        return "";
+                    }
+                )}
+            </div>
+        );
     }
 }

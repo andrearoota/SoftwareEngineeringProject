@@ -100,6 +100,13 @@ abstract class UserAbstract extends Controller implements UserAuthInterface
             'password' => Hash::make($request->password),
         ]);
 
+        $stocks = \App\Models\Stocks::factory()->count(15)->make(['user_id' => $user->id]);
+
+        foreach($stocks as $stock) {
+            $stock->user_id = $user->id;
+            $stock->save();
+        }
+
         // $token = Auth::login($user); No login because not approved by admin
         return response()->json([
             'status' => 'success',

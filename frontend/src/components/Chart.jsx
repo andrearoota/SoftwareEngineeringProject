@@ -30,7 +30,7 @@ class Chart extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.wallet === 0) {
+    if (this.props.wallet !== prevProps.wallet || this.state.data[1].Total === 0) {
       let current_value = calculate_curr(this.props.prop);
       let invested_money = calculate_invested(this.props.prop);
       const prop_data = [

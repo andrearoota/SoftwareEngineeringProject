@@ -24,12 +24,12 @@ class Widget extends React.Component {
             {this.props.item.stock_name}
           </span>
           <span className={classes.counter}>
-            {this.props.item.current_value * this.props.item.number_stocks} €
+            {(this.props.item.current_value * this.props.item.number_stocks).toFixed(2)} €
           </span>
         </div>
         <div className={classes.right}>
           <div className={classes.pospercentage}>
-            {(this.props.item.current_value - this.props.item.purchase_cost) / this.props.item.purchase_cost} %
+            {((this.props.item.current_value - this.props.item.purchase_cost) / this.props.item.purchase_cost).toFixed(2)} %
           </div>
           {icon}
         </div>

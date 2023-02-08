@@ -1,13 +1,11 @@
 header {
     width: 1290px;
     margin: auto;
-    max-width: 95%;
-    margin-top: 100px;
-    
+    max-width: 95%;    
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
+    position: relative;
     left: 0;
     right: 0;
 }
