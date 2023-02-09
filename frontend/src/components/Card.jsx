@@ -38,7 +38,7 @@ class Card extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.wallet !== this.props.wallet)
+    if (this.props.wallet !== prevProps.wallet || this.state.tot_money === 0)
       this.setState({
         wallet: this.props.wallet,
         current_value: calculate_curr(this.props.prop),
@@ -59,22 +59,22 @@ class Card extends React.Component {
           </div>
 
           <p className={classes.title}>Total money </p>
-          <p className={classes.amount}>{this.state.current_value + this.state.wallet}€</p>
+          <p className={classes.amount}>{(this.state.current_value + this.state.wallet).toFixed(2)}€</p>
           <p className={classes.desc}>
             This is the total amount of money you loaded into the app. Check how much you invsted.
           </p>
           <div className={classes.summary}>
             <div className={classes.item}>
               <div className={classes.itemTitle}>Total Amount</div>
-              <div className={classes.resultAmount}>{this.state.invested_money + this.state.wallet}€</div>
+              <div className={classes.resultAmount}>{(this.state.invested_money + this.state.wallet).toFixed(2)}€</div>
             </div>
             <div className={classes.item}>
               <div className={classes.itemTitle}>Invested</div>
-              <div className={classes.resultAmount}>{this.state.invested_money}€</div>
+              <div className={classes.resultAmount}>{this.state.invested_money.toFixed(2)}€</div>
             </div>
             <div className={classes.item}>
               <div className={classes.itemTitle}>Curr value</div>
-              <div className={classes.resultAmount}>{this.state.current_value}€</div>
+              <div className={classes.resultAmount}>{this.state.current_value.toFixed(2)}€</div>
             </div>
           </div>
         </div>

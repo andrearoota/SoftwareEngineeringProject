@@ -9,3 +9,8 @@
     width: 100%;
     text-align: right;
 }
+
+.menu {
+    align-items: right;
+    height: 70%;
+}

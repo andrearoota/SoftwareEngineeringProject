@@ -10,7 +10,7 @@ import LandingPage from './pages/LandingPage';
 import Backdrop from './components/Backdrop';
 import MenuLaterale from './components/MenuLaterale';
 import PaginaApprovazioni from './pages/Approvazioni';
-
+import SellPage from './pages/SellPage';
 // App
 // Il componente che viene renderizzato da index
 // Qua viene gestito tutto:
@@ -201,6 +201,17 @@ class App extends React.Component {
         <Route exact path='/app/settings' element={
           <div>
             <SettingsPage user={this.state.user} apriMenu={() => { this.setState({ menuAperto: true }) }} />
+            {this.state.menuAperto ?
+              <Backdrop onClick={() => {
+                this.setState({ menuAperto: false })
+              }} />
+              : null}
+            {this.state.menuAperto ? <MenuLaterale exit={this.logout} onClick={() => this.setState({ menuAperto: false })} /> : null}
+          </div>
+        } />
+        <Route exact path='/app/sell' element={
+          <div>
+            <SellPage user={this.state.user} apriMenu={() => { this.setState({ menuAperto: true }) }} />
             {this.state.menuAperto ?
               <Backdrop onClick={() => {
                 this.setState({ menuAperto: false })

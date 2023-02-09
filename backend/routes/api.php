@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Stocks\StocksController;
 use App\Http\Controllers\User\UserAdmin;
 use App\Http\Controllers\User\UserBase;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,14 @@ Route::controller(UserBase::class)->group(function () {
         ->whereNumber('user_id')
         ->name('patchWallet');
 });
+
+Route::controller(StocksController::class)->group(function () {
+    Route::delete('users/{user_id}/stocks/{stock_id}', 'sellStocks')
+        ->whereNumber('user_id')
+        ->whereNumber('stock_id')
+        ->name('sellStocks');
+});
+
 
 
 /**
