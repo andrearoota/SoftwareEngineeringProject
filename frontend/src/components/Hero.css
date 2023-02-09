@@ -1,8 +1,13 @@
 .hero-section {
-    height: 100%;
+    width: 1290px;
+    margin: auto;
+    max-width: 95%;    
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    left: 0;
+    right: 0;
 }
 
 .hero-section .container-hero {
