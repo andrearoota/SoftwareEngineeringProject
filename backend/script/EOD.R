@@ -10,7 +10,6 @@ library(dplyr)
 library(smooth)
 
 
-
 buy_sell <- function(SMA_Short, SMA_Long, dataset) {
   d <- list()  
   last <- 14

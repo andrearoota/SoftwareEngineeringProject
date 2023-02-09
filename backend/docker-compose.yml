@@ -100,6 +100,18 @@ services:
             - FAST_REFRESH=false
             - CHOKIDAR_USEPOLLING=true
             - WATCHPACK_POLLING=true
+    rstudio:
+        image: amoselb/rstudio-m1
+        platform: linux/arm64
+        ports:
+        - "8787:8787"
+        environment:
+            PASSWORD: password
+            ROOT: true
+            DISABLE_AUTH: true
+        volumes:
+            - ./.rstudio_config:/home/rstudio/.config/rstudio
+            - ./script:/home/rstudio/workspace
 
 networks:
     sail:
